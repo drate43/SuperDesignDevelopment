@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import style from "./dropdown-item.module.css";
+import style from "./dropdown-item.module.scss";
 
 export interface IDrondownItem {
   name: string;
