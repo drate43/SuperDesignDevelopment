@@ -1,0 +1,12 @@
+.dropdown-item-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 5px;
+}
+
+.dropdown-item-selected {
+  font-weight: bold;
+}
+.dropdown-item {
+  font-weight: bold;
+}
