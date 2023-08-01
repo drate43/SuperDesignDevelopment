@@ -48,7 +48,7 @@
 }
 /* 메뉴박스 오픈상태 */
 .dropdownMenu {
-  height: 150px;
+  min-height: 10px;
   overflow-y: auto;
 
   ul {
@@ -73,7 +73,7 @@
   padding: 10px 5px;
 }
 
-.drodownItemSelect {
+.dropdownItemSelect {
   font-weight: bold;
 }
 .dropdownItem {

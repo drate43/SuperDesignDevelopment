@@ -1,20 +1,24 @@
 import { ReactNode } from "react";
-import style from "./dropdown-item.module.scss";
 
-export interface IDrondownItem {
+export interface IDropDownItem {
   name: string;
   value: string | number;
 }
 
 interface IDropDownItemPros {
+  name: string;
+  value: string | number;
   children?: ReactNode;
   onClick?: (e: MouseEvent) => void;
 }
 
-export const DropDownItem = ({ children }: IDropDownItemPros) => {
-  return (
-    <>
-      <li>{children}</li>
-    </>
-  );
+export const DropDownItem = ({
+  name,
+  value,
+  children,
+  onClick,
+  ...props
+}: IDropDownItemPros) => {
+  //return <>{children ? <div>{children}</div> : <li>{value}</li>}</>;
+  return <li>{value}</li>;
 };

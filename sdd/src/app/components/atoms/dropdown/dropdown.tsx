@@ -1,7 +1,8 @@
 import React, { isValidElement, Children, ReactNode, useState } from "react";
-import style from "./drowdown.module.scss";
+import { nanoid } from "nanoid";
+import style from "./dropdown.module.scss";
 
-import { DropDownItem, IDrondownItem } from "./dropdown-item";
+import { DropDownItem, IDropDownItem } from "./dropdown-item";
 
 export interface IDropDownTitleProps {
   children?: ReactNode;
@@ -10,16 +11,6 @@ export const DropDownTitle = ({ children }: IDropDownTitleProps) => {
   return <div>{children}</div>;
 };
 
-type FunctionOnChanged = () => IDrondownItem;
-export interface IDropDownProps {
-  /**
-   * 타이틀 내용
-   */
-  children?: ReactNode;
-  onChanged?: FunctionOnChanged;
-}
-
-const DropdownItemType = (<DropDownItem />).type;
 const DropDownTitleType = (<DropDownTitle />).type;
 
 const getDropDownTitle = (children: ReactNode) => {
@@ -29,19 +20,41 @@ const getDropDownTitle = (children: ReactNode) => {
     (child) => isValidElement(child) && child.type !== DropDownTitleType
   );
 };
-const getDropDownItems = (children: ReactNode) => {
-  const childrenArray = Children.toArray(children);
-  return childrenArray.filter(
-    (child) => isValidElement(child) && child.type === DropdownItemType
-  );
-};
 
-export const DropDown = ({ children, onChanged, ...props }: IDropDownProps) => {
+type FunctionOnChanged = () => IDropDownItem;
+export interface IDropDownProps {
+  /**
+   * 타이틀 내용
+   */
+  children?: ReactNode;
+  items?: IDropDownItem[];
+  onChanged?: FunctionOnChanged;
+}
+
+// const getDropDownItems = (children: ReactNode) => {
+//   const childrenArray = Children.toArray(children);
+//   return childrenArray.filter(
+//     (child) => isValidElement(child) && child.type === DropdownItemType
+//   );
+// };
+
+export const DropDown = ({
+  children,
+  onChanged,
+  items,
+  ...props
+}: IDropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState({} as IDrondownItem);
+  const [selectedItem, setSelectedItem] = useState({} as IDropDownItem);
 
   const dropDownTitle = getDropDownTitle(children);
-  const dropDownItems = getDropDownItems(children);
+
+  const testArr: IDropDownItem[] = [{ name: "1", value: "2" }];
+
+  const handleItemOnClick = () => {
+    if (onChanged) {
+    }
+  };
 
   const handleDropDownOnClick = () => {
     setIsOpen(!isOpen);
@@ -49,20 +62,29 @@ export const DropDown = ({ children, onChanged, ...props }: IDropDownProps) => {
 
   return (
     <>
-      <div className="menuContainer">
-        <div className={"menuSelector"}>
-          <div className={"selectBtn"} onClick={handleDropDownOnClick}>
-            <div className={"buttonContent"}>{"test"}</div>
+      <div className={style.menuContainer}>
+        <div className={style.menuSelector}>
+          <div className={style.selectBtn} onClick={handleDropDownOnClick}>
+            <div className={style.buttonContent} style={{ color: "black" }}>
+              {children}
+            </div>
           </div>
         </div>
 
         {isOpen ? (
-          <div className="dropdownMenuContainer">
-            <div className="dropdownMenu">
-              {/* <ul>{dropDownItems}</ul> */}
-              <ul>{"123"}</ul>
-              <ul>{"123"}</ul>
-              <ul>{"123"}</ul>
+          <div className={style.dropdownMenuContainer}>
+            <div className={style.dropdownMenu}>
+              {isOpen &&
+                items?.map((item) => {
+                  return (
+                    <DropDownItem
+                      key={nanoid()}
+                      name={item.name}
+                      value={item.value}
+                      onClick={handleItemOnClick}
+                    />
+                  );
+                })}
             </div>
           </div>
         ) : null}
