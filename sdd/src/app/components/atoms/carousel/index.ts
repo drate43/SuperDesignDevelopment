@@ -8,3 +8,5 @@ export const Carousel = Object.assign(CarouselMain, {
   Image: CarouselImage,
   Pagination: CarouselPagination,
 });
+
+export { CarouselMain, CarouselImage, CarouselTitle, CarouselPagination };
