@@ -6,19 +6,28 @@ export interface IDropDownItem {
 }
 
 interface IDropDownItemPros {
-  name: string;
-  value: string | number;
+  item: IDropDownItem;
   children?: ReactNode;
-  onClick?: (e: MouseEvent) => void;
+  onClick?: (item: IDropDownItem) => void;
+  className: string;
 }
 
 export const DropDownItem = ({
-  name,
-  value,
+  item,
   children,
   onClick,
+  className,
   ...props
 }: IDropDownItemPros) => {
-  //return <>{children ? <div>{children}</div> : <li>{value}</li>}</>;
-  return <li>{value}</li>;
+  return (
+    <li
+      onClick={(e) => {
+        if (onClick) onClick(item);
+      }}
+      className={className}
+      {...props}
+    >
+      {item.name}
+    </li>
+  );
 };

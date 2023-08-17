@@ -1,81 +1,24 @@
-/* 메뉴 */
-.menuContainer {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
+/* fade in */
 
-  &:hover {
-    cursor: pointer;
+@keyframes slide-fade-in-animation {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
 
-/* 기본메뉴상태 */
-.menuSelector {
-  display: flex;
-  width: 100%;
-
-  .selectBtn {
-    font-size: 1rem;
-    background: #ffffff;
-    border-radius: 8px;
-    border: thin solid lightgray;
-    padding: 10px;
-    width: 100%;
-  }
-
-  .buttonContent {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-  }
+.back {
+  background-color: blue;
 }
 
-.dropdownMenuContainer {
-  position: absolute;
-  background: #ffffff;
-  border-radius: 8px;
-  top: calc(3em);
-
-  width: 150px;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
-  z-index: 99;
-}
-/* 메뉴박스 오픈상태 */
-.dropdownMenu {
-  min-height: 10px;
-  overflow-y: auto;
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  li {
-    padding: 10px 15px;
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.2);
-    }
-  }
-}
-.dropdownMenu::-webkit-scrollbar {
-  display: none;
+.slide-fade-in {
+  overflow: hidden;
+  background: yellow;
 }
 
-.dropdownItemContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 5px;
-}
-
-.dropdownItemSelect {
-  font-weight: bold;
-}
-.dropdownItem {
-  font-weight: bold;
+.slide-fade-in > ul {
+  animation: slide-fade-in-animation 0.4s ease;
 }

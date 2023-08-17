@@ -1,42 +1,16 @@
-import React, { isValidElement, Children, ReactNode, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { nanoid } from "nanoid";
-import style from "./dropdown.module.scss";
-
 import { DropDownItem, IDropDownItem } from "./dropdown-item";
+import "./dropdown.module.scss";
 
-export interface IDropDownTitleProps {
-  children?: ReactNode;
-}
-export const DropDownTitle = ({ children }: IDropDownTitleProps) => {
-  return <div>{children}</div>;
-};
-
-const DropDownTitleType = (<DropDownTitle />).type;
-
-const getDropDownTitle = (children: ReactNode) => {
-  const childrenArray = Children.toArray(children);
-
-  return childrenArray.filter(
-    (child) => isValidElement(child) && child.type !== DropDownTitleType
-  );
-};
-
-type FunctionOnChanged = () => IDropDownItem;
 export interface IDropDownProps {
   /**
    * 타이틀 내용
    */
   children?: ReactNode;
   items?: IDropDownItem[];
-  onChanged?: FunctionOnChanged;
+  onChanged?: (item: IDropDownItem) => void;
 }
-
-// const getDropDownItems = (children: ReactNode) => {
-//   const childrenArray = Children.toArray(children);
-//   return childrenArray.filter(
-//     (child) => isValidElement(child) && child.type === DropdownItemType
-//   );
-// };
 
 export const DropDown = ({
   children,
@@ -47,45 +21,48 @@ export const DropDown = ({
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState({} as IDropDownItem);
 
-  const dropDownTitle = getDropDownTitle(children);
-
-  const testArr: IDropDownItem[] = [{ name: "1", value: "2" }];
-
-  const handleItemOnClick = () => {
+  const handleItemOnClick = (selectedItem: IDropDownItem) => {
     if (onChanged) {
+      onChanged(selectedItem);
     }
   };
 
-  const handleDropDownOnClick = () => {
+  const handleDropDownMouseEnter = () => {
+    //if (!isOpen) setIsOpen(true);
     setIsOpen(!isOpen);
+  };
+
+  const handleDropDownMouseLeave = () => {
+    if (isOpen) setIsOpen(false);
   };
 
   return (
     <>
-      <div className={style.menuContainer}>
-        <div className={style.menuSelector}>
-          <div className={style.selectBtn} onClick={handleDropDownOnClick}>
-            <div className={style.buttonContent} style={{ color: "black" }}>
-              {children}
-            </div>
-          </div>
-        </div>
-
+      <div
+        className="inline-block relative hover:cursor-pointer border border-slate-200 rounded-md"
+        onMouseEnter={handleDropDownMouseEnter}
+        onMouseLeave={handleDropDownMouseLeave}
+        //onClick={handleDropDownMouseEnter}
+      >
+        <div className=" text-black">{children ?? "Hover me"}</div>
         {isOpen ? (
-          <div className={style.dropdownMenuContainer}>
-            <div className={style.dropdownMenu}>
+          <div
+            className="absolute top-full rounded-md bg-white z-99 drop-shadow-md"
+            {...props}
+          >
+            <ul className="list-none p-1 text-black">
               {isOpen &&
                 items?.map((item) => {
                   return (
                     <DropDownItem
                       key={nanoid()}
-                      name={item.name}
-                      value={item.value}
+                      item={item}
                       onClick={handleItemOnClick}
+                      className="rounded-md min-w-[80px] hover:bg-zinc-300"
                     />
                   );
                 })}
-            </div>
+            </ul>
           </div>
         ) : null}
       </div>
