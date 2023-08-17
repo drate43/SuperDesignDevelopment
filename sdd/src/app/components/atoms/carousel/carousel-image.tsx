@@ -9,8 +9,13 @@ interface ICarouselImage {
 // @todo - Image 관련 옵션 설정 추가하기
 const CarouselImage = ({ url, alt }: ICarouselImage) => {
   return (
-    // @todo - Image 컴포넌트 관련 옵션 찾아보기
-    <Image src={url} alt={alt} fill />
+    <Image
+      src={url}
+      alt={alt}
+      loading="lazy"
+      fill
+      style={{ pointerEvents: "none" }}
+    />
   );
 };
 

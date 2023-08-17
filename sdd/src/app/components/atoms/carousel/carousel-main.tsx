@@ -3,14 +3,13 @@ import style from "./carousel.module.scss";
 
 interface ICarouselProps {
   children: ReactNode;
+  height: number;
 }
 
-const CarouselMain = ({ children }: ICarouselProps) => {
+const CarouselMain = ({ children, height }: ICarouselProps) => {
   return (
-    <div className={style.carouselWrap}>
-      <ul className={style.carouselList}>
-        <li>{children}</li>
-      </ul>
+    <div className={style.carouselWrap} style={{ height: height + "px" }}>
+      {children}
     </div>
   );
 };
