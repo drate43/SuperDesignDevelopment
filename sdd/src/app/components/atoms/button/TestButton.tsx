@@ -1,34 +1,34 @@
+import styles from './TestButtobn.module.scss'
+
+type Ttype = 'default' | 'primary' | 'black' | 'white' | 'text' | 'link'
+
 interface IButtonProps {
-  /**
-   * 버튼 배경색
-   */
-  backgroundColor?: string;
-  /**
-   * 버튼 내용
-   */
-  label: string;
-  /**
-   * 클릭함수
-   */
+  type?: Ttype
+  // 버튼 내용
+  label?: string;
+  // 버튼 배경색
+  bgColor?: string;
+  // 클릭함수
   onClick?: () => void;
 }
 
 export const TestButton = ({
-  backgroundColor,
+  type = 'default',
   label,
+  bgColor,
   ...props
 }: IButtonProps) => {
+
+
+
   const handleButtonClick = () => {
     alert("click");
   };
   return (
-    <button type="button" {...props}>
-      {label}
-      <style jsx>{`
-        button {
-          background-color: ${backgroundColor};
-        }
-      `}</style>
-    </button>
+    <>
+      <button type="button" className={`btn${type} ${styles.btn}`} {...props} style={{backgroundColor: bgColor}}>
+        {label}
+      </button>
+    </>
   );
 };
