@@ -1,25 +1,35 @@
 .collapseContainer {
-    display: block;
+  display: block;
 
-    .collapseHeader {
-        width: 500px;
-        border-top: 1px solid lightgray;
-        border-bottom: 1px solid lightgray;
-        margin-bottom: 5px;
-        padding: 10px 20px;
+  .collapseHeader {
+    width: 335px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #eeeeee;
+    font-size: 16px;
 
-        &.open {
-            border-bottom: none;
-        }
+    &.open {
+      border-bottom: none;
     }
-
-    .collapseBody {
-        width: 500px;
-        min-height: 300px;
-        // box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        padding: 10px 20px;
-        border-bottom: 1px solid lightgray;
-
-  
+    .icon-arrow__top {
+      width: 20px;
+      height: 20px;
+      background: url("../../../../../public/images/ic20CommonArrowTop.svg");
     }
+    .icon-arrow__bottom {
+      width: 20px;
+      height: 20px;
+      background: url("../../../../../public/images/ic20CommonArrowBottom.svg");
+    }
+  }
+
+  .collapseBody {
+    width: 335px;
+    min-height: 482px;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+  }
 }
