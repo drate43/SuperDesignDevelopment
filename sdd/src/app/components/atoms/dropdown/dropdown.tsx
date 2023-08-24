@@ -1,7 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import { nanoid } from "nanoid";
 import { DropDownItem, IDropDownItem } from "./dropdown-item";
-import "./dropdown.module.scss";
 
 export interface IDropDownProps {
   /**
@@ -28,8 +27,7 @@ export const DropDown = ({
   };
 
   const handleDropDownMouseEnter = () => {
-    //if (!isOpen) setIsOpen(true);
-    setIsOpen(!isOpen);
+    if (!isOpen) setIsOpen(true);
   };
 
   const handleDropDownMouseLeave = () => {
@@ -42,12 +40,11 @@ export const DropDown = ({
         className="inline-block relative hover:cursor-pointer border border-slate-200 rounded-md"
         onMouseEnter={handleDropDownMouseEnter}
         onMouseLeave={handleDropDownMouseLeave}
-        //onClick={handleDropDownMouseEnter}
       >
         <div className=" text-black">{children ?? "Hover me"}</div>
         {isOpen ? (
           <div
-            className="absolute top-full rounded-md bg-white z-99 drop-shadow-md"
+            className="absolute top-full rounded-md bg-white z-99 drop-shadow-md slide-fade-in"
             {...props}
           >
             <ul className="list-none p-1 text-black">

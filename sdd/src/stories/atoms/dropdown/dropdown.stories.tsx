@@ -19,6 +19,11 @@ type Story = StoryObj<typeof DropDownMenu>;
 export const DropDown: Story = {
   args: {
     children: <button>{"button"}</button>,
-    items: [{ name: "1", value: "2" }],
+    items: [
+      { name: "1", value: "1" },
+      { name: "2", value: "2" },
+      { name: "3", value: "3" },
+      { name: "4", value: "4" },
+    ],
   },
 };
