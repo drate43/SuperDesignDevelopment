@@ -1,71 +1,35 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import {
-  Carousel,
-  CarouselWrap,
-  CarouselImage,
-  CarouselTitle,
-  CarouselPagination,
-} from "../../../app/components/atoms/_carousel/index";
+import CarouselBox from "../../../app/components/atoms/carousel";
+import style from "../../../app/components/atoms/carousel/carousel.module.scss";
 
-const meta: Meta<typeof Carousel> = {
+const meta: Meta<typeof CarouselBox> = {
   title: "Atoms/Carousel",
-  component: Carousel,
+  component: CarouselBox,
   tags: ["autodocs"],
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Carousel>;
+type Story = StoryObj<typeof CarouselBox>;
 
 export const CarouselExample: Story = {
   args: {
     children: (
-      <>
-        <CarouselWrap length={3} height={300}>
+      // 스토리북 말고 기본적으로 <CarouselBox>로 감싸서 사용
+      <div className={style.carouselWrap}>
+        <ul className={style.carouselList}>
           <li>
-            <CarouselTitle justifyType={"right"} alignType={"bottom"}>
-              Adidas
-              <br />
-              Brand Store
-            </CarouselTitle>
-            <CarouselImage
-              url={
-                "https://images.pixeden.com/images/branding-identity-business-card-psd-mockup_full_preview_retina.jpg"
-              }
-              alt={"임시 이미지1"}
-            />
+            <CarouselBox.Image src={'http://via.placeholder.com/300x300'} alt={'테스트용1'} loading="lazy" />
           </li>
           <li>
-            <CarouselTitle justifyType={"left"} alignType={"bottom"}>
-              Nike
-              <br />
-              Brand Store
-            </CarouselTitle>
-            <CarouselImage
-              url={
-                "https://www.pixeden.com/galleries/branding-identity-business-card-psd-mockup/002-business-card-cards-cardboard-identity-corporate-stationery-invitation-brand-graphic-design-free-psd-mockup-resource-pixeden.jpg"
-              }
-              alt={"임시 이미지2"}
-            />
+            <CarouselBox.Image src={'http://via.placeholder.com/300x300'} alt={'테스트용2'} loading="lazy" />
           </li>
           <li>
-            <CarouselTitle justifyType={"left"} alignType={"top"}>
-              Vans
-              <br />
-              Brand Store
-            </CarouselTitle>
-            <CarouselImage
-              url={
-                "https://www.pixeden.com/galleries/branding-identity-business-card-psd-mockup/003-business-card-cards-cardboard-identity-corporate-stationery-invitation-brand-graphic-design-free-psd-mockup-resource-pixeden.jpg"
-              }
-              alt={"임시 이미지3"}
-            />
+            <CarouselBox.Image src={'http://via.placeholder.com/300x300'} alt={'테스트용3'} loading="lazy" />
           </li>
-        </CarouselWrap>
-        <CarouselPagination currentIndex={1} total={3} />
-      </>
+        </ul>
+      </div>
     ),
-    length: 3,
     height: 300,
   },
 };
