@@ -5,7 +5,7 @@ import {
   CarouselImage,
   CarouselTitle,
   CarouselPagination,
-} from "../../../app/components/atoms/carousel/index";
+} from "../../../app/components/atoms/_carousel/index";
 
 const meta: Meta<typeof Carousel> = {
   title: "Atoms/Carousel",
