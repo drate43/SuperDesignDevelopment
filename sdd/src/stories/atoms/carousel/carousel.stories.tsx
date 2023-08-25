@@ -19,13 +19,25 @@ export const CarouselExample: Story = {
       <div className={style.carouselWrap}>
         <ul className={style.carouselList}>
           <li>
-            <CarouselBox.Image src={'http://via.placeholder.com/300x300'} alt={'테스트용1'} loading="lazy" />
+            <CarouselBox.Image
+              src={"http://via.placeholder.com/300x300"}
+              alt={"테스트용1"}
+              loading="lazy"
+            />
           </li>
           <li>
-            <CarouselBox.Image src={'http://via.placeholder.com/300x300'} alt={'테스트용2'} loading="lazy" />
+            <CarouselBox.Image
+              src={"http://via.placeholder.com/300x300"}
+              alt={"테스트용2"}
+              loading="lazy"
+            />
           </li>
           <li>
-            <CarouselBox.Image src={'http://via.placeholder.com/300x300'} alt={'테스트용3'} loading="lazy" />
+            <CarouselBox.Image
+              src={"http://via.placeholder.com/300x300"}
+              alt={"테스트용3"}
+              loading="lazy"
+            />
           </li>
         </ul>
       </div>

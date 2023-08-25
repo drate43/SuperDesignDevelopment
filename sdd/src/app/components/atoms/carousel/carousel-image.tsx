@@ -4,7 +4,7 @@ import { useCarouselContext } from "./carousel-wrap";
 
 // @todo - Image 관련 옵션 설정 추가하기
 const CarouselImage = ({ ...props }) => {
-  const {height} = useCarouselContext()
+  const { height } = useCarouselContext();
 
   return (
     <Image
@@ -15,6 +15,5 @@ const CarouselImage = ({ ...props }) => {
     />
   );
 };
-
 
 export default CarouselImage;
