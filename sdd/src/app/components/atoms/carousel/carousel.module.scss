@@ -2,38 +2,34 @@
 .carouselWrap {
   overflow: hidden;
   position: relative;
-  .carouselList{
-    > li{
-      position: relative;
-      width: 100vw;
-      .carouselTitle{
-        position: absolute;
-        font-size: 2rem;
-        z-index: 2;
-        &.left{
-          left: 10px;
-        }
-        &.center{
-          left: 50%;
-          transform: translate(-50%, 0);
-          &.middle{
-            transform: translate(-50%, -50%);
-          }
-        }
-        &.right{
-          right: 10px;
-        }
-        &.top{
-          top: 10px;
-        }
-        &.middle{
-          top: 50%;
-          transform: translate(0, -50%);
-        }
-        &.bottom{
-          bottom: 40px;
-        }
+
+  // 일단 제외
+  .carouselTitle{
+    position: absolute;
+    font-size: 2rem;
+    z-index: 2;
+    &.left{
+      left: 10px;
+    }
+    &.center{
+      left: 50%;
+      transform: translate(-50%, 0);
+      &.middle{
+        transform: translate(-50%, -50%);
       }
+    }
+    &.right{
+      right: 10px;
+    }
+    &.top{
+      top: 10px;
+    }
+    &.middle{
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    &.bottom{
+      bottom: 40px;
     }
   }
   .pagenation{
