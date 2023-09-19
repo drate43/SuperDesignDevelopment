@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import CarouselBox from "../../../app/components/atoms/carousel";
-import style from "../../../app/components/atoms/carousel/carousel.module.scss";
+import CarouselBox from "@/components/atoms/carousel";
+import style from "@/components/atoms/carousel/carousel.module.scss";
 import React from "react";
 
 const meta: Meta<typeof CarouselBox> = {
@@ -17,19 +17,19 @@ export default meta;
 // 임시 캐러셀 리스트
 const itemList = [
   {
-    alt: "나는 캐러셀1",
+    alt: "최대 9만 포인트 적립",
     image_path:
-      "https://cdn.pixabay.com/photo/2023/09/10/00/49/lovebird-8244066_1280.jpg",
+      "https://img.soldout.co.kr/items/2023/08/30/43d13354-6e3b-4b95-a4e8-a57d4b6226d9.png/soldout/resize/570x570/optimize",
   },
   {
-    alt: "나는 캐러셀2",
+    alt: "계좌이체 적립시 최대 할인",
     image_path:
-      "https://cdn.pixabay.com/photo/2023/09/10/00/49/lovebird-8244066_1280.jpg",
+      "https://img.soldout.co.kr/items/2023/09/15/08c74379-be1c-49dc-9ceb-9d7ae2f349e2.png/soldout/resize/570x570/optimize",
   },
   {
-    alt: "나는 캐러셀3",
+    alt: "크림 배너",
     image_path:
-      "https://cdn.pixabay.com/photo/2023/09/10/00/49/lovebird-8244066_1280.jpg",
+      "https://image.brandi.me/home/banner/bannerImage_1323726_1694759390.jpg",
   },
 ];
 
@@ -39,8 +39,7 @@ const Slide = itemList.map((data, index) => {
 
   return (
     <CarouselBox.Slide key={index}>
-      <CarouselBox.Image src={image_path} alt={alt} />
-      <p>{alt}</p>
+      <CarouselBox.Image src={image_path} alt={alt} fill />
     </CarouselBox.Slide>
   );
 });
@@ -55,14 +54,14 @@ export const CarouselExample: Story = {
         <CarouselBox.SlideBox
           spaceBetween={50}
           slidesPerView={"auto"}
-          onSlideChange={() => console.log("slide change")}
+          onSlideChange={(data) => console.log("slide change", data)}
           onSwiper={(swiper) => console.log(swiper)}
         >
           {Slide}
         </CarouselBox.SlideBox>
       </div>
     ),
-    height: 600,
+    height: 160,
     // 원래는 여기 list에서 제어 해야함
     itemList: [
       {
