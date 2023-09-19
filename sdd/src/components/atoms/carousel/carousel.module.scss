@@ -1,0 +1,51 @@
+/* 메뉴 */
+.carouselWrap {
+  overflow: hidden;
+  position: relative;
+
+  // 일단 제외
+  .carouselTitle{
+    position: absolute;
+    font-size: 2rem;
+    z-index: 2;
+    &.left{
+      left: 10px;
+    }
+    &.center{
+      left: 50%;
+      transform: translate(-50%, 0);
+      &.middle{
+        transform: translate(-50%, -50%);
+      }
+    }
+    &.right{
+      right: 10px;
+    }
+    &.top{
+      top: 10px;
+    }
+    &.middle{
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+    &.bottom{
+      bottom: 40px;
+    }
+  }
+  .pagenation{
+    position: absolute;
+    right: 6px;
+    bottom: 6px;
+    padding: 4px 16px;
+    border-radius: 15px;
+    font-size: 16px;
+    color: #fff;
+    background: #333;
+    .currentNum{
+      margin-right: 4px;
+    }
+    .totalNum{
+      margin-left: 4px;
+    }
+  }
+}
