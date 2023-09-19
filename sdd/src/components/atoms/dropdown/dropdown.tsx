@@ -55,7 +55,6 @@ export const DropDown = ({
                       key={nanoid()}
                       item={item}
                       onClick={handleItemOnClick}
-                      className="rounded-md min-w-[80px] hover:bg-zinc-300"
                     />
                   );
                 })}
