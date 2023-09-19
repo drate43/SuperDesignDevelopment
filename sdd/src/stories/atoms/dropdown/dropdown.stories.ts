@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { DropDownMenu } from "../../../app/components/atoms/dropdown/index";
+import { DropDownMenu } from "@/components/atoms/dropdown/index";
 
 const meta: Meta<typeof DropDownMenu> = {
   title: "Atoms/DropDown",

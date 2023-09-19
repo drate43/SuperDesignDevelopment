@@ -1,0 +1,193 @@
+@import '_variables.scss';
+
+body {
+  //background-color: var(--Gray20);
+}
+input {
+  border: none;
+  margin: 0;
+  padding: 10px;
+  background-color: transparent;
+  outline: none;
+}
+
+.swal2-container {
+  padding: 30px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  .swal2-show {
+    animation: none;
+  }
+
+  .swal2-popup {
+    //width: calc(100% - 60px);
+    width: 100%;
+    max-width: 420px;
+    min-width: 280px;
+    padding-bottom: 16px;
+    border-radius: 16px;
+  }
+
+  .swal2-title {
+    //padding: 30px 16px 0;
+    padding: 30px 16px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.3em;
+    color: var(--Gray90);
+    word-break: keep-all;
+    .notice-txt {
+      display: block;
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.43;
+      color: var(--Gray60);
+      letter-spacing: -0.2px;
+    }
+  }
+
+  .swal2-html-container {
+    //margin: 12px 16px 0;
+    margin: 0 16px 16px;
+    font-size: 14px;
+    line-height: 1.4em;
+    color: var(--Gray60);
+    overflow: hidden;
+  }
+
+  .swal2-actions {
+    display: flex;
+    //margin-top: 36px;
+    margin-top: 20px;
+    padding: 0 16px;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 4px;
+
+    .swal2-styled {
+      //flex: 1 1 auto;
+      flex: 1;
+      margin: 0;
+      padding: 15px 10px;
+      font-weight: bold;
+      border-radius: 8px;
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .swal2-cancel {
+      font-size: 16px;
+      color: var(--Gray90);
+      background: var(--Gray20);
+    }
+
+    .swal2-confirm {
+      font-size: 16px;
+      background: var(--Gray90);
+
+      &.system-check-confirm {
+        color: #fff;
+        background: var(--S_Blue);
+      }
+    }
+  }
+
+  &.is_cancelBtn {
+    .swal2-actions {
+      .swal2-cancel,
+      .swal2-confirm {
+        width: calc(50% - 2px);
+      }
+    }
+  }
+
+  &.system-check {
+    .swal2-html-container {
+      color: var(--Gray70);
+      span {
+        margin-left: 3px;
+      }
+    }
+  }
+  &.no-confirm {
+    .swal2-popup {
+      padding-bottom: 30px;
+    }
+  }
+
+  .txt-info {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: var(--Gray60);
+    //margin-top: 10px;
+  }
+}
+
+.radio-wrap {
+  label {
+    display: block;
+    padding-left: 32px;
+    position: relative;
+    line-height: 24px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    width: fit-content;
+    margin-top: 20px;
+  }
+
+  input[type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+
+    &:checked ~ .checkmark {
+      background-image: var(--btnRadioOn);
+    }
+
+    // 결제수단 선택 시, opacity 1
+    &:checked {
+      & ~ .txt,
+      & ~ .ic-naver-pay {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: var(--btnRadioOff) 0 0 no-repeat;
+    background-size: 20px;
+  }
+
+  .txt {
+    color: var(--Gray90);
+    font-size: 16px;
+  }
+
+  .sub-txt {
+    color: var(--Gray60);
+    font-size: 12px;
+    margin-left: 10px;
+    line-height: 15px;
+    display: block;
+  }
+}
+
+input[type='password'] {
+  font-family: map-get($TEXT_FONT_STACK, 'password');
+}

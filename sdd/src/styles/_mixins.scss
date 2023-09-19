@@ -1,0 +1,49 @@
+@mixin ellipsis () {
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+@mixin lineClamp($maxLine: 2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $maxLine;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+}
+
+@mixin transform ($contents) {
+  -webkit-transform: $contents;
+  -moz-transform: $contents;
+  -ms-transform: $contents;
+  -o-transform: $contents;
+  transform: $contents;
+}
+
+@mixin transition ($contents) {
+  -webkit-transition: $contents;
+  -moz-transition: $contents;
+  -o-transition: $contents;
+  transition: $contents;
+}
+
+@mixin bgDefault {
+  background-color: var(--Gray00);
+}
+
+@mixin animation ($type, $second ){
+  animation: $type $second;
+  -moz-animation: $type $second; /* Firefox */
+  -webkit-animation: $type $second; /* Safari and Chrome */
+  -o-animation: $type $second; /* Opera */
+}
+
+@mixin hide-radio {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}

@@ -17,6 +17,9 @@
 }
 
 body {
+  /* 임시 높이 */
+  height: 100vh;
+
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
