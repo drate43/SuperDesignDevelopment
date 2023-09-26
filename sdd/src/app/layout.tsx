@@ -1,7 +1,6 @@
-import "./globals.css";
+import "@/styles/index.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Favicon from "public/bulba-roll.gif";
 
 const inter = Inter({ subsets: ["latin"] });
 
