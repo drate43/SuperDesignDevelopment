@@ -1,0 +1,44 @@
+@media (prefers-color-scheme: dark) {
+  :root {
+    --S_Yellow: #ffe200;
+    --S_Red: #f02e34;
+    --WeekRed: #ff6b6b;
+    --S_Green: #2fc656;
+    --DeepGreen: #0ea736;
+    --S_Blue: #0083ff;
+    --WeekBlue: #4ca2f3;
+    --S_Purple: #7941ff;
+    --White: #fff; // 모드 상관없이 흰색
+    --Black: #000; // 모드 상관없이 검정색
+
+    // gray
+    --Gray90: #fafafa;
+    --Gray80: #d7d7d7;
+    --Gray70: #9d9d9d;
+    --Gray60: #5c5c5c;
+    --Gray50: #444;
+    --Gray40: #383838;
+    --Gray30: #323232;
+    --Gray25: #272727;
+    --Gray20: #212121;
+    --Gray10: #1e1e1e;
+    --Gray00: #121212;
+
+    // gray opacity
+    --Gray90_OP_8: rgba(0,0,0,.8);
+    --Gray90_OP_5: rgba(0,0,0,.5);
+    --Gray90_OP_1: rgba(0,0,0,.1);
+    --Gray90_OP_04: rgba(0,0,0,.04);
+    --Gray90_OP_05: rgba(0,0,0,.05);
+
+    // purple opacity
+    --S_Purple_OP_3: rgba(90,42,207,.3);
+    --S_Purple_OP_1: rgba(90,42,207,.1);
+
+    // bg
+    --BG_Purple: #35344b;
+    --BG_Blue: #2e3743;
+    --BG_Red: #4a3434;
+    --ProductBG_Blue: #f0f3f7;
+  }
+}
