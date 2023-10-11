@@ -1,0 +1,13 @@
+@import 'variables.scss';
+@import 'reset.scss';
+@import 'mixins.scss';
+@import 'fonts.scss';
+@import 'color_dark.scss';
+@import 'color_light.scss';
+@import 'common.scss';
+
+:root {
+  --maxMobileWidth: 480px;
+  --safeTopHeight: env(safe-area-inset-top);
+  --safeBottomHeight: env(safe-area-inset-bottom);
+}

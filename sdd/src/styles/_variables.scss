@@ -1,0 +1,32 @@
+// font 변수 설정
+$TEXT_FONT_STACK: (
+  'default': (
+    '-apple-system',
+    'SF Pro Display',
+    'BlinkMacSystemFont',
+    'Apple SD Gothic Neo',
+    'Apple SD 산돌고딕 Neo',
+    'helvetica',
+    '맑은 고딕',
+    'sans-serif',
+  ),
+  'musinsa': (
+    'Musinsa',
+    'SpoqaHanSansNeo',
+    '-apple-system',
+    'BlinkMacSystemFont',
+    'Apple SD Gothic Neo',
+    'Apple SD 산돌고딕 Neo',
+    'helvetica',
+    'Roboto',
+    'Noto Sans KR',
+    '맑은 고딕',
+    'sans-serif',
+  ),
+  'password': (
+    'password',
+    'Roboto',
+    'helvetica',
+    'sans-serif',
+  ),
+);
