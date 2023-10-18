@@ -1,7 +1,9 @@
-import { DropDown, DropDownTitle } from "./dropdown";
-import { DropDownItem } from "./dropdown-item";
+import { DropDown } from "./dropdown";
+import { DropDownItem, IDropDownItem } from "./dropdown-item";
 
 export const DropDownMenu = Object.assign(DropDown, {
-  Title: DropDownTitle,
   Item: DropDownItem,
 });
+
+export type { IDropDownItem };
+export { DropDown, DropDownItem };

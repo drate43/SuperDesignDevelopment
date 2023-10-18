@@ -1,20 +1,38 @@
 import { ReactNode } from "react";
-import style from "./dropdown-item.module.scss";
+import { useToggle } from "./useToggle";
+import { setOriginalNode } from "typescript";
 
-export interface IDrondownItem {
+export interface IDropDownItem {
   name: string;
   value: string | number;
 }
 
 interface IDropDownItemPros {
-  children?: ReactNode;
-  onClick?: (e: MouseEvent) => void;
+  item: IDropDownItem;
+  onClick?: (item: IDropDownItem) => void;
 }
 
-export const DropDownItem = ({ children }: IDropDownItemPros) => {
+export const DropDownItem = ({
+  item,
+  onClick,
+  ...props
+}: IDropDownItemPros) => {
+  const [toggled, setToggled] = useToggle(false);
+
+  const handleOnClick = () => {
+    setToggled();
+    console.log(toggled);
+  };
   return (
-    <>
-      <li>{children}</li>
-    </>
+    <li
+      onClick={handleOnClick}
+      className={`rounded-md min-w-[80px] hover:bg-zinc-300 ${
+        toggled ? "bg-slate-500" : "bg-slate-50"
+      }
+      `}
+      {...props}
+    >
+      {item.name}
+    </li>
   );
 };
