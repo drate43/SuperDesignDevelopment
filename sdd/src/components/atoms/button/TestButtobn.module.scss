@@ -1,0 +1,67 @@
+$gray: #909399;
+$red: #f56c6c;
+$blue: #409eff;
+$green: #67c23a;
+
+.btn {
+  color: #fff;
+  cursor: pointer;
+
+  // size
+  &.medium {
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 4px;
+  }
+  &.small {
+    padding: 9px 15px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  &.mini {
+    padding: 5px 12px;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  // color
+  &.default {
+    background-color: $gray;
+
+    &.outline {
+      border: 1px solid $gray;
+    }
+  }
+  &.red {
+    background-color: $red;
+
+    &.outline {
+      border: 1px solid $red;
+    }
+  }
+  &.blue {
+    background-color: $blue;
+
+    &.outline {
+      border: 1px solid $blue;
+    }
+  }
+  &.green {
+    background-color: $green;
+
+    &.outline {
+      border: 1px solid $green;
+    }
+  }
+
+  &.outline {
+    background-color: #fff;
+  }
+
+  // link
+  &.link {
+    padding: 0;
+    border: 0;
+    text-decoration: underline;
+  }
+}

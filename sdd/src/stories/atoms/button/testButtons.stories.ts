@@ -6,9 +6,6 @@ const meta: Meta<typeof TestButton> = {
   component: TestButton,
   tags: ["autodocs"],
   argTypes: {
-    backgroundColor: {
-      control: "color",
-    },
   },
 };
 
@@ -17,7 +14,6 @@ export default meta;
 type Story = StoryObj<typeof TestButton>;
 export const Button: Story = {
   args: {
-    backgroundColor: "skyblue",
     label: "Button",
   },
 };
