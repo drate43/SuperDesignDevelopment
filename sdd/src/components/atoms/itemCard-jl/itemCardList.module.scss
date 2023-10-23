@@ -1,0 +1,17 @@
+.itemCard {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0 5px;
+  align-items: flex-start;
+}
+
+.itemName {
+  padding-top: 15px;
+  font-size: 14px;
+  color: #666;
+}
+
+.itemPrice {
+  padding-top: 12px;
+  font-weight: 600;
+}
