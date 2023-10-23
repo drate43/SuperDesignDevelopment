@@ -29,4 +29,20 @@
 .itemPrice {
   padding: 10px 0 20px;
   font-weight: 600;
+
+  span {
+    vertical-align: middle;
+  }
+}
+
+.badge {
+  font-size: 0;
+  text-indent: -9999px;
+
+  &.custody {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: url('../../../../public/badge/ic-12-common-delivery-orange@2x.png') center/cover no-repeat;
+  }
 }

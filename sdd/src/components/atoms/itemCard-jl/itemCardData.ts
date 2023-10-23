@@ -16,6 +16,7 @@ export const itemCardData: IItemCard[] = [
       is_updated: 0,
       is_under_retail: 1,
     },
+    is_custody: 1,
   },
   {
     id: 95297,
@@ -32,6 +33,7 @@ export const itemCardData: IItemCard[] = [
       is_updated: 0,
       is_under_retail: 1,
     },
+    is_custody: 0,
   },
   {
     id: 6520,
@@ -48,6 +50,7 @@ export const itemCardData: IItemCard[] = [
       is_updated: 0,
       is_under_retail: 1,
     },
+    is_custody: 1,
   },
   {
     id: 5402965,
@@ -64,6 +67,7 @@ export const itemCardData: IItemCard[] = [
       is_updated: 0,
       is_under_retail: 0,
     },
+    is_custody: 1,
   },
   {
     id: 5403176,
@@ -80,6 +84,7 @@ export const itemCardData: IItemCard[] = [
       is_updated: 0,
       is_under_retail: 1,
     },
+    is_custody: 0,
   },
   {
     id: 21160,
@@ -96,6 +101,7 @@ export const itemCardData: IItemCard[] = [
       is_updated: 0,
       is_under_retail: 1,
     },
+    is_custody: 1,
   },
   {
     id: 17978,
@@ -112,5 +118,6 @@ export const itemCardData: IItemCard[] = [
       is_updated: 0,
       is_under_retail: 1,
     },
+    is_custody: 1,
   },
 ];

@@ -14,6 +14,7 @@ export interface IItemCard {
     is_updated: 0 | 1;
     is_under_retail: 0 | 1;
   };
+  is_custody: 0 | 1;
 }
 
 type TPriceType = "won" | "comma"; // 가격 타입
@@ -53,8 +54,6 @@ const ItemCardList = ({
   lineClamp = 2,
   priceType = "won",
 }: IItemCardListProps) => {
-  const lineClampStyle = lineClamp ? styles[`lineClamp${lineClamp}`] : "";
-
   return (
     <>
       <ul className={styles.itemCard}>
@@ -70,11 +69,24 @@ const ItemCardList = ({
                   style={{ width: "100%", height: "auto" }}
                 />
               </div>
-              <p className={`${styles.itemName} ${lineClampStyle}`}>
+              <p
+                className={`
+                  ${styles.itemName} 
+                  ${styles[`lineClamp${lineClamp}`]}
+                `}
+              >
                 {item.item_name}
               </p>
               <p className={styles.itemPrice}>
-                {displayPrice(priceType, item.display_price)}
+                <span
+                  className={`
+                    ${styles.badge}
+                    ${item.is_custody ? styles["custody"] : ""}
+                  `}
+                >
+                  바로배송
+                </span>
+                <span>{displayPrice(priceType, item.display_price)}</span>
               </p>
             </li>
           );
