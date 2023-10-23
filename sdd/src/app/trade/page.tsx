@@ -5,11 +5,11 @@ import styles from "./trade.module.scss";
 import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
 import ItemCardDH from "@atoms/item-card-dh";
-import useItemCard from "@/hooks/item-card-dh/useItemcard";
+import useItemCard from "@/hooks/item-card-dh/useItemCard";
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
-  const [itemList] = useItemCard();
+  const { itemCardList } = useItemCard();
 
   // 캐러셀 세부 컴포넌트
   const Slide = carouselList.map((data, index) => {
@@ -52,7 +52,7 @@ const TradePage = () => {
       <div style={{ padding: "16px 0", background: "#eee" }}>
         <ItemCardDH
           title={"맛있는 캠핑을 위하여!"}
-          itemCardList={itemList}
+          itemCardList={itemCardList}
           size={160}
           gap={16}
         >

@@ -16,6 +16,11 @@ interface IItemCardList {
 function useItemCard() {
   const [itemCardList, setItemCardList] = useState<IItemCardList[]>([]);
 
+  // 아이템 카드 더보기 버튼 클릭 이벤트
+  const handleItemCardMoreClick = () => {
+    console.log("더보기 클릭");
+  };
+
   // 임시 캐러셀 리스트
   useEffect(() => {
     // 원래면 해당 부분에서 api 호출하여 itemList에 리스트 값을 할당
@@ -63,7 +68,10 @@ function useItemCard() {
     setItemCardList(itemList);
   }, []);
 
-  return [itemCardList];
+  return {
+    itemCardList,
+    handleItemCardMoreClick,
+  };
 }
 
 export default useItemCard;

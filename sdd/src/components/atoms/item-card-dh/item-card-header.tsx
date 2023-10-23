@@ -1,21 +1,19 @@
 import React from "react";
 import styles from "./item-card.module.scss";
 import { useItemCardContext } from "./item-card-box";
+import useItemCard from "@/hooks/item-card-dh/useItemCard";
 
 interface IItemCardHeaderProps {
   isMore?: boolean;
   handleClick?: () => void;
 }
 
-const clickTest = () => {
-  console.log("더보기 클릭");
-};
-
 const ItemCardHeader = ({
   isMore = true,
   handleClick,
 }: IItemCardHeaderProps) => {
   const { title, gap } = useItemCardContext();
+  const { handleItemCardMoreClick } = useItemCard();
 
   return (
     <>
@@ -26,7 +24,10 @@ const ItemCardHeader = ({
           </div>
           {isMore && (
             <div className={styles.btnBox}>
-              <button type={"button"} onClick={handleClick || clickTest}>
+              <button
+                type={"button"}
+                onClick={handleClick || handleItemCardMoreClick}
+              >
                 더보기
               </button>
             </div>
