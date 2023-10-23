@@ -16,12 +16,43 @@ export interface IItemCard {
   };
 }
 
+type TPriceType = "won" | "comma"; // 가격 타입
+
 interface IItemCardListProps {
   list: IItemCard[];
   lineClamp?: number; // 말줄임 2 or 3
+  priceType?: TPriceType;
 }
 
-const ItemCardList = ({ list, lineClamp = 2 }: IItemCardListProps) => {
+const comma = (price: number) => {
+  if (price) {
+    return Number(price).toLocaleString();
+  } else {
+    return "";
+  }
+};
+
+const won = (price: number) => {
+  if (price) {
+    return comma(price) + "원";
+  } else {
+    return "";
+  }
+};
+
+const displayPrice = (type: TPriceType, price: number) => {
+  if (type === "won") {
+    return won(price);
+  } else if (type === "comma") {
+    return comma(price);
+  }
+};
+
+const ItemCardList = ({
+  list,
+  lineClamp = 2,
+  priceType = "won",
+}: IItemCardListProps) => {
   const lineClampStyle = lineClamp ? styles[`lineClamp${lineClamp}`] : "";
 
   return (
@@ -42,7 +73,9 @@ const ItemCardList = ({ list, lineClamp = 2 }: IItemCardListProps) => {
               <p className={`${styles.itemName} ${lineClampStyle}`}>
                 {item.item_name}
               </p>
-              <p className={styles.itemPrice}>{item.display_price}</p>
+              <p className={styles.itemPrice}>
+                {displayPrice(priceType, item.display_price)}
+              </p>
             </li>
           );
         })}
