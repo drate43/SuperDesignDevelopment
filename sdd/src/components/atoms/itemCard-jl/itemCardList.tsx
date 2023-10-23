@@ -18,9 +18,12 @@ export interface IItemCard {
 
 interface IItemCardListProps {
   list: IItemCard[];
+  lineClamp?: number; // 말줄임 2 or 3
 }
 
-const ItemCardList = ({ list }: IItemCardListProps) => {
+const ItemCardList = ({ list, lineClamp = 2 }: IItemCardListProps) => {
+  const lineClampStyle = lineClamp ? styles[`lineClamp${lineClamp}`] : "";
+
   return (
     <>
       <ul className={styles.itemCard}>
@@ -36,7 +39,9 @@ const ItemCardList = ({ list }: IItemCardListProps) => {
                   style={{ width: "100%", height: "auto" }}
                 />
               </div>
-              <p className={styles.itemName}>{item.item_name}</p>
+              <p className={`${styles.itemName} ${lineClampStyle}`}>
+                {item.item_name}
+              </p>
               <p className={styles.itemPrice}>{item.display_price}</p>
             </li>
           );
