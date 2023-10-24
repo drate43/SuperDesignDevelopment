@@ -4,6 +4,7 @@ import Badge from "./badge";
 import Img from "./img";
 import BadgeWrap from "./badgeWrap";
 import ImgWrap from "./imgWrap";
+import Price from "./price";
 
 export interface IItemCard {
   id: number;
@@ -22,7 +23,7 @@ export interface IItemCard {
   is_custody: 0 | 1;
 }
 
-type TPriceType = "won" | "comma"; // 가격 타입
+export type TPriceType = "won" | "comma"; // 가격 타입
 
 interface IItemCardListProps {
   list: IItemCard[];
@@ -31,30 +32,6 @@ interface IItemCardListProps {
   lineClamp?: number; // 말줄임 2 or 3
   priceType?: TPriceType;
 }
-
-const comma = (price: number) => {
-  if (price) {
-    return Number(price).toLocaleString();
-  } else {
-    return "";
-  }
-};
-
-const won = (price: number) => {
-  if (price) {
-    return comma(price) + "원";
-  } else {
-    return "";
-  }
-};
-
-const displayPrice = (type: TPriceType, price: number) => {
-  if (type === "won") {
-    return won(price);
-  } else if (type === "comma") {
-    return comma(price);
-  }
-};
 
 const ItemCardList = ({
   list,
@@ -94,7 +71,7 @@ const ItemCardList = ({
               </p>
               <p className={styles.itemPrice}>
                 <Badge type={"custody"} value={item.is_custody} />
-                <span>{displayPrice(priceType, item.display_price)}</span>
+                <Price type={priceType}>{item.display_price}</Price>
               </p>
             </li>
           );
