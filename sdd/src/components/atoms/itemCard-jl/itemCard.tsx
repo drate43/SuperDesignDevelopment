@@ -4,7 +4,7 @@ import Img from "@atoms/itemCard-jl/img";
 import BadgeWrap from "@atoms/itemCard-jl/badgeWrap";
 import Badge from "@atoms/itemCard-jl/badge";
 import ItemName from "@atoms/itemCard-jl/itemName";
-import Price from "@atoms/itemCard-jl/price";
+import BadgePrice from "@atoms/itemCard-jl/badgePrice";
 import { IItemCard, TPriceType } from "@atoms/itemCard-jl/itemCardList";
 
 interface IItemCardProps {
@@ -36,10 +36,12 @@ const ItemCard = ({
         </BadgeWrap>
       </ImgWrap>
       <ItemName lineClamp={lineClamp}>{item_name}</ItemName>
-      <p className={styles.itemPrice}>
-        <Badge type={"custody"} value={is_custody} />
-        <Price type={priceType}>{display_price}</Price>
-      </p>
+      <BadgePrice
+        badgeType={"custody"}
+        badgeValue={is_custody}
+        priceType={priceType}
+        price={display_price}
+      />
     </li>
   );
 };
