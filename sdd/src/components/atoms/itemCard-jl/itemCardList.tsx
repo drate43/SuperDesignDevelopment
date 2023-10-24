@@ -107,7 +107,10 @@ const ItemCardList = ({
         {list?.map((item) => {
           return (
             <li key={item.id}>
-              <div style={{ backgroundColor: item.brand_color }}>
+              <div
+                style={{ backgroundColor: item.brand_color }}
+                className={styles.itemImgWrap}
+              >
                 <Image
                   src={item.image_path}
                   alt={item.item_name}
@@ -115,7 +118,7 @@ const ItemCardList = ({
                   height={0}
                   style={{ width: "100%", height: "auto" }}
                 />
-                <div>
+                <div className={styles.itemImgBadge}>
                   <Badge
                     type={"under-retail"}
                     value={item.badge.is_under_retail}

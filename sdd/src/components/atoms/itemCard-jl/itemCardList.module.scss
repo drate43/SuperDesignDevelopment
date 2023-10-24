@@ -5,6 +5,16 @@
   align-items: flex-start;
 }
 
+.itemImgWrap {
+  position: relative;
+}
+
+.itemImgBadge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 .itemName {
   display: -webkit-box;
   padding-top: 15px;
