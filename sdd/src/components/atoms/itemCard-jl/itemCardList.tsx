@@ -3,6 +3,7 @@ import styles from "./itemCardList.module.scss";
 import Badge from "./badge";
 import Img from "./img";
 import BadgeWrap from "./badgeWrap";
+import ImgWrap from "./imgWrap";
 
 export interface IItemCard {
   id: number;
@@ -71,10 +72,7 @@ const ItemCardList = ({
         {list?.map((item) => {
           return (
             <li key={item.id}>
-              <div
-                style={{ backgroundColor: item.brand_color }}
-                className={styles.itemImgWrap}
-              >
+              <ImgWrap bg={item.brand_color}>
                 <Img url={item.image_path} alt={item.item_name} />
 
                 <BadgeWrap>
@@ -85,7 +83,7 @@ const ItemCardList = ({
                   <Badge type={"grade"} value={item.badge.is_grade} />
                   <Badge type={"secondhand"} value={item.badge.is_secondhand} />
                 </BadgeWrap>
-              </div>
+              </ImgWrap>
               <p
                 className={`
                   ${styles.itemName} 
