@@ -4,6 +4,7 @@ import Badge from "./badge";
 import Img from "./img";
 import BadgeWrap from "./badgeWrap";
 import ImgWrap from "./imgWrap";
+import ItemName from "./itemName";
 import Price from "./price";
 
 export interface IItemCard {
@@ -61,14 +62,7 @@ const ItemCardList = ({
                   <Badge type={"secondhand"} value={item.badge.is_secondhand} />
                 </BadgeWrap>
               </ImgWrap>
-              <p
-                className={`
-                  ${styles.itemName} 
-                  ${styles[`lineClamp${lineClamp}`]}
-                `}
-              >
-                {item.item_name}
-              </p>
+              <ItemName lineClamp={lineClamp}>{item.item_name}</ItemName>
               <p className={styles.itemPrice}>
                 <Badge type={"custody"} value={item.is_custody} />
                 <Price type={priceType}>{item.display_price}</Price>
