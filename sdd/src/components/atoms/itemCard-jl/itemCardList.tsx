@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./itemCardList.module.scss";
+import Badge from "./badge";
 
 export interface IItemCard {
   id: number;
@@ -27,52 +28,6 @@ interface IItemCardListProps {
   lineClamp?: number; // 말줄임 2 or 3
   priceType?: TPriceType;
 }
-
-interface IBadgeProps {
-  type: string;
-  value: 0 | 1;
-}
-
-const Badge = ({ type, value }: IBadgeProps) => {
-  let badgeName = "";
-  let badgeClass = "";
-
-  if (value) {
-    switch (type) {
-      case "under-retail":
-        badgeName = "언더리테일";
-        badgeClass = "badgeUnderRetail";
-        break;
-      case "grade":
-        badgeName = "98점";
-        badgeClass = "badgeGrade";
-        break;
-      case "secondhand":
-        badgeName = "중고";
-        badgeClass = "badgeSecondhand";
-        break;
-      case "custody":
-        badgeName = "바로배송";
-        badgeClass = "badgeCustody";
-        break;
-      default:
-        break;
-    }
-
-    return (
-      <span
-        className={`
-        ${styles.badge}
-        ${styles[badgeClass]}
-      `}
-      >
-        {badgeName}
-      </span>
-    );
-  } else {
-    return "";
-  }
-};
 
 const comma = (price: number) => {
   if (price) {
