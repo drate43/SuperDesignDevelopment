@@ -4,6 +4,7 @@ import React from "react";
 import styles from "./trade.module.scss";
 import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
+import ItemCardContainer from "@atoms/itemcard-mh";
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
@@ -44,8 +45,13 @@ const TradePage = () => {
       {/* 필터 */}
       <div>필터</div>
       <br />
+      <br />
       {/* 상품 리스트 */}
       <div>상품 리스트</div>
+      <br />
+
+      <ItemCardContainer />
+      <br />
       <br />
     </main>
   );

@@ -1,0 +1,108 @@
+// 컨파일될 때 관련 컴포넌트 이름이 클라스 명에 한번 더 붙기 때문에
+// 굳이 BEM 처럼 itemCard로 접두달 필요없는듯..?
+
+// css 파일도 분리 필요
+@import '@/styles/mixins.scss';
+
+.list-container {
+  padding: 20px;
+}
+
+.itemCard {
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+
+    .show-more {
+      color: var(--Gray50);
+      font-size: 14px;
+    }
+  }
+
+  &-list {
+    display: flex;
+    width: 100%;
+    margin: 5px 0;
+    overflow: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera*/
+    }
+  }
+
+  // itemCard
+  & + & {
+    margin-left: 10px;
+  }
+
+  .image-wrap {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background-color: var(--Gray20);
+    border-radius: 10px;
+
+    img {
+      border-radius: 10px;
+    }
+  }
+
+  .info-wrap {
+    margin-top: 15px;
+    width: 150px;
+
+    .brand {
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      color: var(--Gray50);
+    }
+
+    .title {
+      @include ellipsis;
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    .price-wrap {
+      display: flex;
+      margin-top: 8px;
+      font-weight: bold;
+      font-size: 14px;
+      letter-spacing: -0.5px;
+
+      .discount {
+        color: red;
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .badge-wrap {
+    margin-top: 10px;
+    display: flex;
+
+    .badge {
+      display: flex;
+      font-weight: bold;
+      font-size: 10px;
+      color: var(--Gray50);
+      padding: 2px;
+      border-radius: 3px;
+      border: 1px solid var(--Gray20);
+      width: fit-content;
+
+      div + div {
+        margin-left: 3px;
+      }
+
+      & + .badge {
+        margin-left: 3px;
+      }
+    }
+  }
+}
