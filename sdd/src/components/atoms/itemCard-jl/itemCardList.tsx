@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./itemCardList.module.scss";
 import Badge from "./badge";
 import Img from "./img";
+import BadgeWrap from "./badgeWrap";
 
 export interface IItemCard {
   id: number;
@@ -76,14 +77,14 @@ const ItemCardList = ({
               >
                 <Img url={item.image_path} alt={item.item_name} />
 
-                <div className={styles.itemImgBadge}>
+                <BadgeWrap>
                   <Badge
                     type={"under-retail"}
                     value={item.badge.is_under_retail}
                   />
                   <Badge type={"grade"} value={item.badge.is_grade} />
                   <Badge type={"secondhand"} value={item.badge.is_secondhand} />
-                </div>
+                </BadgeWrap>
               </div>
               <p
                 className={`
