@@ -13,7 +13,8 @@ export const itemCardData: IItemCard[] = [
     deep_link:
       "msoldoutapp://webview/type=1&style=2&header=0&url=https%3A%2F%2Fqa.soldout.co.kr%2Ftrade%2Fproduct%2F15662%3Fproduct_size_option_id%3D0%26open_size%3D0",
     badge: {
-      is_updated: 0,
+      is_grade: 1,
+      is_secondhand: 1,
       is_under_retail: 1,
     },
     is_custody: 1,
@@ -30,7 +31,8 @@ export const itemCardData: IItemCard[] = [
     deep_link:
       "msoldoutapp://webview/type=1&style=2&header=0&url=https%3A%2F%2Fqa.soldout.co.kr%2Ftrade%2Fproduct%2F95297%3Fproduct_size_option_id%3D0%26open_size%3D0",
     badge: {
-      is_updated: 0,
+      is_grade: 0,
+      is_secondhand: 1,
       is_under_retail: 1,
     },
     is_custody: 0,
@@ -47,7 +49,8 @@ export const itemCardData: IItemCard[] = [
     deep_link:
       "msoldoutapp://webview/type=1&style=2&header=0&url=https%3A%2F%2Fqa.soldout.co.kr%2Ftrade%2Fproduct%2F6520%3Fproduct_size_option_id%3D0%26open_size%3D0",
     badge: {
-      is_updated: 0,
+      is_grade: 0,
+      is_secondhand: 0,
       is_under_retail: 1,
     },
     is_custody: 1,
@@ -64,7 +67,8 @@ export const itemCardData: IItemCard[] = [
     deep_link:
       "msoldoutapp://webview/type=1&style=2&header=0&url=https%3A%2F%2Fqa.soldout.co.kr%2Ftrade%2Fproduct%2F5402965%3Fproduct_size_option_id%3D0%26open_size%3D0",
     badge: {
-      is_updated: 0,
+      is_grade: 1,
+      is_secondhand: 1,
       is_under_retail: 0,
     },
     is_custody: 1,
@@ -81,7 +85,8 @@ export const itemCardData: IItemCard[] = [
     deep_link:
       "msoldoutapp://webview/type=1&style=2&header=0&url=https%3A%2F%2Fqa.soldout.co.kr%2Ftrade%2Fproduct%2F5403176%3Fproduct_size_option_id%3D0%26open_size%3D0",
     badge: {
-      is_updated: 0,
+      is_grade: 0,
+      is_secondhand: 1,
       is_under_retail: 1,
     },
     is_custody: 0,
@@ -98,7 +103,8 @@ export const itemCardData: IItemCard[] = [
     deep_link:
       "msoldoutapp://webview/type=1&style=2&header=0&url=https%3A%2F%2Fqa.soldout.co.kr%2Ftrade%2Fproduct%2F21160%3Fproduct_size_option_id%3D0%26open_size%3D0",
     badge: {
-      is_updated: 0,
+      is_grade: 0,
+      is_secondhand: 0,
       is_under_retail: 1,
     },
     is_custody: 1,
@@ -115,7 +121,8 @@ export const itemCardData: IItemCard[] = [
     deep_link:
       "msoldoutapp://webview/type=1&style=2&header=0&url=https%3A%2F%2Fqa.soldout.co.kr%2Ftrade%2Fproduct%2F17978%3Fproduct_size_option_id%3D0%26open_size%3D0",
     badge: {
-      is_updated: 0,
+      is_grade: 1,
+      is_secondhand: 1,
       is_under_retail: 1,
     },
     is_custody: 1,

@@ -11,7 +11,8 @@ export interface IItemCard {
   change_price_ratio: number;
   deep_link: string;
   badge: {
-    is_updated: 0 | 1;
+    is_grade: 0 | 1;
+    is_secondhand: 0 | 1;
     is_under_retail: 0 | 1;
   };
   is_custody: 0 | 1;
@@ -24,6 +25,52 @@ interface IItemCardListProps {
   lineClamp?: number; // 말줄임 2 or 3
   priceType?: TPriceType;
 }
+
+interface IBadgeProps {
+  type: string;
+  value: 0 | 1;
+}
+
+const Badge = ({ type, value }: IBadgeProps) => {
+  let badgeName = "";
+  let badgeClass = "";
+
+  if (value) {
+    switch (type) {
+      case "under-retail":
+        badgeName = "언더리테일";
+        badgeClass = "badgeUnderRetail";
+        break;
+      case "grade":
+        badgeName = "98점";
+        badgeClass = "badgeGrade";
+        break;
+      case "secondhand":
+        badgeName = "중고";
+        badgeClass = "badgeSecondhand";
+        break;
+      case "custody":
+        badgeName = "바로배송";
+        badgeClass = "badgeCustody";
+        break;
+      default:
+        break;
+    }
+
+    return (
+      <span
+        className={`
+        ${styles.badge}
+        ${styles[badgeClass]}
+      `}
+      >
+        {badgeName}
+      </span>
+    );
+  } else {
+    return "";
+  }
+};
 
 const comma = (price: number) => {
   if (price) {
@@ -68,6 +115,14 @@ const ItemCardList = ({
                   height={0}
                   style={{ width: "100%", height: "auto" }}
                 />
+                <div>
+                  <Badge
+                    type={"under-retail"}
+                    value={item.badge.is_under_retail}
+                  />
+                  <Badge type={"grade"} value={item.badge.is_grade} />
+                  <Badge type={"secondhand"} value={item.badge.is_secondhand} />
+                </div>
               </div>
               <p
                 className={`
@@ -78,14 +133,7 @@ const ItemCardList = ({
                 {item.item_name}
               </p>
               <p className={styles.itemPrice}>
-                <span
-                  className={`
-                    ${styles.badge}
-                    ${item.is_custody ? styles["badgeCustody"] : ""}
-                  `}
-                >
-                  바로배송
-                </span>
+                <Badge type={"custody"} value={item.is_custody} />
                 <span>{displayPrice(priceType, item.display_price)}</span>
               </p>
             </li>
