@@ -81,7 +81,7 @@ const ItemCardList = ({
                 <span
                   className={`
                     ${styles.badge}
-                    ${item.is_custody ? styles["custody"] : ""}
+                    ${item.is_custody ? styles["badgeCustody"] : ""}
                   `}
                 >
                   바로배송
