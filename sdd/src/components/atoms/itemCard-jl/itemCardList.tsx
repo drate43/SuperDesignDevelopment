@@ -22,6 +22,8 @@ type TPriceType = "won" | "comma"; // 가격 타입
 
 interface IItemCardListProps {
   list: IItemCard[];
+  grid?: number;
+  gap?: number;
   lineClamp?: number; // 말줄임 2 or 3
   priceType?: TPriceType;
 }
@@ -98,12 +100,17 @@ const displayPrice = (type: TPriceType, price: number) => {
 
 const ItemCardList = ({
   list,
+  grid = 3,
+  gap = 5,
   lineClamp = 2,
   priceType = "won",
 }: IItemCardListProps) => {
   return (
     <>
-      <ul className={styles.itemCard}>
+      <ul
+        className={styles.itemCard}
+        style={{ gridTemplateColumns: `repeat(${grid}, 1fr)`, gap: `${gap}px` }}
+      >
         {list?.map((item) => {
           return (
             <li key={item.id}>
