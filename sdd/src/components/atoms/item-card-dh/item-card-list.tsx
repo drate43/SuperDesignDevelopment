@@ -21,9 +21,7 @@ const ItemCardList = () => {
             `}
           >
             {/*이미지 영역*/}
-            <ItemCardDH.Image>
-              <img src={image_path} alt={alt} />
-            </ItemCardDH.Image>
+            <ItemCardDH.Image src={image_path} alt={alt} />
 
             {/*아이템 정보*/}
             <div className={styles.itemInfo}>

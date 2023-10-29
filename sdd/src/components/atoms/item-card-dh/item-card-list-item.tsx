@@ -5,7 +5,7 @@ import styles from "./item-card.module.scss";
 import { useItemCardContext } from "@atoms/item-card-dh/item-card";
 
 // 아이템 카드 이미지
-export const ItemCardImage = ({ children }) => {
+export const ItemCardImage = ({ image_path, alt, ...props }) => {
   const { size } = useItemCardContext();
 
   return (
@@ -18,7 +18,7 @@ export const ItemCardImage = ({ children }) => {
           height: ${size}px;
         `}
       >
-        {children}
+        <img src={image_path} alt={alt} {...props} />
       </div>
     </>
   );
