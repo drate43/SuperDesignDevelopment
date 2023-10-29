@@ -33,7 +33,7 @@ const ItemCardContext = React.createContext<ItemCardContextProps>({
 // Context에 값을 넣어주기 위한 Provider 생성
 // useMemo를 활용하여 캐싱해두면 리렌더링을 방지 할 수 있음
 // useMemo가 없으면 itemCardBox 부모 컴포넌트가 다시 렌더링되는 경우 모든 컴포넌트가 강제로 리렌더링됨.
-const itemCardBox = ({
+const itemCard = ({
   title,
   itemCardList,
   size,
@@ -61,4 +61,4 @@ const useItemCardContext = () => {
   return React.useContext(ItemCardContext);
 };
 
-export { itemCardBox, useItemCardContext };
+export { itemCard, useItemCardContext };

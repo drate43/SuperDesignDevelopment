@@ -1,14 +1,16 @@
-import { itemCardBox } from "./item-card-box";
+import { itemCard } from "./item-card";
 import ItemCardHeader from "@atoms/item-card-dh/item-card-header";
 import ItemCardContents from "@atoms/item-card-dh/item-card-contents";
 import ItemCardListItem from "@atoms/item-card-dh/item-card-list-item";
-import ItemCardListImage from "@atoms/item-card-dh/item-card-image";
-import ItemCardBrand from "@atoms/item-card-dh/item-card-brand";
-import ItemCardTitle from "@atoms/item-card-dh/item-card-title";
-import ItemCardPrice from "@atoms/item-card-dh/item-card-price";
-import ItemCardBadge from "@atoms/item-card-dh/item-card-badge";
+import {
+  ItemCardListImage,
+  ItemCardBrand,
+  ItemCardTitle,
+  ItemCardPrice,
+  ItemCardBadge,
+} from "@atoms/item-card-dh/item-card-info";
 
-export const ItemCardDH = Object.assign(itemCardBox, {
+export const ItemCardDH = Object.assign(itemCard, {
   header: ItemCardHeader,
   contents: ItemCardContents,
   ListItem: ItemCardListItem,

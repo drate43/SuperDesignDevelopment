@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./item-card.module.scss";
-import { useItemCardContext } from "./item-card-box";
+import { useItemCardContext } from "./item-card";
 import useItemCard from "@/hooks/item-card-dh/useItemCard";
 
 interface IItemCardHeaderProps {

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./item-card.module.scss";
 import ItemCardDH from "@atoms/item-card-dh";
-import { useItemCardContext } from "@atoms/item-card-dh/item-card-box";
+import { useItemCardContext } from "@atoms/item-card-dh/item-card";
 
 const ItemCardListItem = () => {
   const { size, itemCardList } = useItemCardContext();

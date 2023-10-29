@@ -24,6 +24,7 @@ function useItemCard() {
   // 임시 캐러셀 리스트
   useEffect(() => {
     // 원래면 해당 부분에서 api 호출하여 itemList에 리스트 값을 할당
+    // setTimeout으로 api 흉내만..
     const itemList = [
       {
         title: "꿈의 거처 앨범 1",
@@ -65,7 +66,7 @@ function useItemCard() {
         isSale: true,
       },
     ];
-    setItemCardList(itemList);
+    setTimeout(() => setItemCardList(itemList), 1000);
   }, []);
 
   return {
