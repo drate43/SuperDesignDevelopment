@@ -5,14 +5,10 @@ import { useItemCardContext } from "@atoms/item-card-dh/item-card";
 
 interface IItemCardContentsProps {
   children?: ReactNode;
-  isCustom?: boolean;
 }
 
-// isCustom값이 true일 경우 해당 리스트를 커스텀 가능
-const ItemCardContents = ({
-  children,
-  isCustom = false,
-}: IItemCardContentsProps) => {
+// children이 없을 경우 기본 ListItem을 보여줌
+const ItemCardContents = ({ children }: IItemCardContentsProps) => {
   const { gap } = useItemCardContext();
 
   return (
@@ -29,7 +25,7 @@ const ItemCardContents = ({
             padding: "0 " + gap + "px",
           }}
         >
-          {isCustom ? children : <ItemCardDH.ListItem />}
+          {children || <ItemCardDH.ListItem />}
         </ul>
       </div>
     </>
