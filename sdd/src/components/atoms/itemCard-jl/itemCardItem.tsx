@@ -1,19 +1,16 @@
-import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
 import ImgWrap from "@atoms/itemCard-jl/imgWrap";
 import Img from "@atoms/itemCard-jl/img";
 import BadgeWrap from "@atoms/itemCard-jl/badgeWrap";
 import Badge from "@atoms/itemCard-jl/badge";
 import ItemName from "@atoms/itemCard-jl/itemName";
 import BadgePrice from "@atoms/itemCard-jl/badgePrice";
-import { IItemCard, TPriceType } from "@atoms/itemCard-jl/itemCardList";
+import { IItemCard } from "@atoms/itemCard-jl/itemCardData";
 
 interface IItemCardProps {
   data: IItemCard;
-  lineClamp: number;
-  priceType: TPriceType;
 }
 
-const ItemCard = ({
+const ItemCardItem = ({
   data: {
     brand_color,
     image_path,
@@ -22,8 +19,6 @@ const ItemCard = ({
     is_custody,
     display_price,
   },
-  lineClamp,
-  priceType,
 }: IItemCardProps) => {
   return (
     <li>
@@ -35,15 +30,14 @@ const ItemCard = ({
           <Badge type={"secondhand"} value={badge?.is_secondhand} />
         </BadgeWrap>
       </ImgWrap>
-      <ItemName lineClamp={lineClamp}>{item_name}</ItemName>
+      <ItemName>{item_name}</ItemName>
       <BadgePrice
         badgeType={"custody"}
         badgeValue={is_custody}
-        priceType={priceType}
         price={display_price}
       />
     </li>
   );
 };
 
-export default ItemCard;
+export default ItemCardItem;

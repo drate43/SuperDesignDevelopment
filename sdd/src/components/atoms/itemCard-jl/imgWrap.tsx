@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
 
+//  이 녀석이 굳이 컴포넌트로 필요할까?
 interface IImgWrapProps {
   children: ReactNode;
   bg?: string;

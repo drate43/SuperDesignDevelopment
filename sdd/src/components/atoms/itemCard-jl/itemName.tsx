@@ -1,11 +1,13 @@
 import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
+import { useItemCardContext } from "./itemCardContext";
 
 interface IItemNameProps {
-  lineClamp?: number; // default: 2
   children: string;
 }
 
-const ItemName = ({ lineClamp = 2, children }: IItemNameProps) => {
+const ItemName = ({ children }: IItemNameProps) => {
+  const { lineClamp } = useItemCardContext();
+
   return (
     <p
       className={`

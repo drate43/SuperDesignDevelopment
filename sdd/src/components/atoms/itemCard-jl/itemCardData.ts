@@ -1,4 +1,20 @@
-import { IItemCard } from "@atoms/itemCard-jl/itemCardList";
+interface IItemCardBadge {
+  is_grade: 0 | 1;
+  is_secondhand: 0 | 1;
+  is_under_retail: 0 | 1;
+}
+export interface IItemCard {
+  id: number;
+  image_path: string;
+  brand_name: string;
+  brand_color: string;
+  item_name: string;
+  display_price: number;
+  change_price_ratio: number;
+  deep_link: string;
+  badge: IItemCardBadge;
+  is_custody: 0 | 1;
+}
 
 export const itemCardData: IItemCard[] = [
   {

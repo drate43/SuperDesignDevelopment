@@ -4,8 +4,8 @@ import React from "react";
 import styles from "./trade.module.scss";
 import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
-import ItemCardListJL from "@/components/atoms/itemCard-jl/itemCardList";
 import { itemCardData } from "@/components/atoms/itemCard-jl/itemCardData";
+import ItemCard from "@/components/atoms/itemCard-jl";
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
@@ -49,7 +49,18 @@ const TradePage = () => {
       {/* 상품 리스트 */}
       <div>상품 리스트</div>
       <br />
-      <ItemCardListJL list={itemCardData} />
+      <div>
+        <h4>쥐리</h4>
+        <ItemCard
+          itemCardData={itemCardData}
+          grid={3}
+          gap={5}
+          lineClamp={2}
+          priceType={"won"}
+        >
+          <ItemCard.ItemCardList />
+        </ItemCard>
+      </div>
     </main>
   );
 };
