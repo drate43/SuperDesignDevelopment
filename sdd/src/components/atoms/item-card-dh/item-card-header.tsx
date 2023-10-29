@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./item-card.module.scss";
 import { useItemCardContext } from "./item-card";
 import useItemCard from "@/hooks/item-card-dh/useItemCard";
@@ -38,4 +38,4 @@ const ItemCardHeader = ({
   );
 };
 
-export default ItemCardHeader;
+export default memo(ItemCardHeader);
