@@ -1,4 +1,6 @@
+/** @jsxImportSource @emotion/react */
 import React, { memo } from "react";
+import { css } from "@emotion/react";
 import styles from "./item-card.module.scss";
 import { useItemCardContext } from "./item-card";
 import useItemCard from "@/hooks/item-card-dh/useItemCard";
@@ -18,7 +20,12 @@ const ItemCardHeader = ({
   return (
     <>
       <div className={styles.itemCardHeader}>
-        <div className={styles.inner} style={{ padding: "0 " + gap + "px" }}>
+        <div
+          className={styles.inner}
+          css={css`
+            padding: 0 ${gap}px;
+          `}
+        >
           <div className={styles.title}>
             <h2>{title}</h2>
           </div>
