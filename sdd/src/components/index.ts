@@ -1,3 +1,6 @@
 import { DropDownMenu } from "./atoms/dropdown/index";
 
-export { DropDownMenu };
+import ItemCards from "./atoms/itemcard-ym/index";
+import ProductCard from "./atoms/itemcard-ym/productCard";
+
+export { DropDownMenu, ProductCard, ItemCards };
