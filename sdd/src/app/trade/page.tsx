@@ -5,7 +5,7 @@ import styles from "./trade.module.scss";
 import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
 import { itemCardData } from "@/components/atoms/itemCard-jl/itemCardData";
-import ItemCard from "@/components/atoms/itemCard-jl";
+import ItemCardJL from "@/components/atoms/itemCard-jl";
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
@@ -18,6 +18,43 @@ const TradePage = () => {
       <CarouselBox.Slide key={index}>
         <CarouselBox.Image src={image_path} alt={alt} fill />
       </CarouselBox.Slide>
+    );
+  });
+
+  const itemCardItem = itemCardData?.map((item) => {
+    const {
+      id,
+      brand_color,
+      image_path,
+      item_name,
+      badge,
+      is_custody,
+      display_price,
+    } = item;
+
+    return (
+      <ItemCardJL.ItemCardItem key={id}>
+        <ItemCardJL.ImgWrap bg={brand_color}>
+          <ItemCardJL.Img url={image_path} alt={item_name} />
+          <ItemCardJL.BadgeWrap>
+            <ItemCardJL.Badge
+              type={"under-retail"}
+              value={badge?.is_under_retail}
+            />
+            <ItemCardJL.Badge type={"grade"} value={badge?.is_grade} />
+            <ItemCardJL.Badge
+              type={"secondhand"}
+              value={badge?.is_secondhand}
+            />
+          </ItemCardJL.BadgeWrap>
+        </ItemCardJL.ImgWrap>
+        <ItemCardJL.ItemName>{item_name}</ItemCardJL.ItemName>
+        <ItemCardJL.BadgePrice
+          badgeType={"custody"}
+          badgeValue={is_custody}
+          price={display_price}
+        />
+      </ItemCardJL.ItemCardItem>
     );
   });
 
@@ -51,15 +88,15 @@ const TradePage = () => {
       <br />
       <div>
         <h4>쥐리</h4>
-        <ItemCard
+        <ItemCardJL
           itemCardData={itemCardData}
           grid={3}
           gap={5}
           lineClamp={2}
           priceType={"won"}
         >
-          <ItemCard.ItemCardList />
-        </ItemCard>
+          <ItemCardJL.ItemCardList>{itemCardItem}</ItemCardJL.ItemCardList>
+        </ItemCardJL>
       </div>
     </main>
   );

@@ -1,23 +1,20 @@
+import { ReactNode } from "react";
 import styles from "./itemCardList.module.scss";
-import ItemCardItem from "./itemCardItem";
 import { useItemCardContext } from "./itemCardContext";
 
-const ItemCardList = () => {
-  const { itemCardData, grid, gap } = useItemCardContext()
-  
+interface ItemCardListProps {
+  children?: ReactNode;
+}
+
+const ItemCardList = ({ children }: ItemCardListProps) => {
+  const { grid, gap } = useItemCardContext();
+
   return (
     <ul
       className={styles.itemCard}
       style={{ gridTemplateColumns: `repeat(${grid}, 1fr)`, gap: `${gap}px` }}
     >
-      {itemCardData?.map((item) => {
-        return (
-          <ItemCardItem
-            key={item.id}
-            data={item}
-          />
-        );
-      })}
+      {children}
     </ul>
   );
 };
