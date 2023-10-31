@@ -1,13 +1,13 @@
-import React, { ReactNode,useContext } from "react";
-import { IItemCard } from "@atoms/itemCard-jl/itemCardData";
+import React, { ReactNode, useContext } from "react";
+import { IItemCard, IItemCard1 } from "@atoms/itemCard-jl/itemCardData";
 
 interface ItemCardContext {
-  itemCardData: IItemCard[]
-  grid: number
-  gap: number
-  lineClamp: 2 | 3  // 말줄임 2 or 3
-  priceType: TPriceType
-  children?: ReactNode
+  itemCardData: IItemCard[] | IItemCard1[];
+  grid: number;
+  gap: number;
+  lineClamp: 2 | 3; // 말줄임 2 or 3
+  priceType: TPriceType;
+  children?: ReactNode;
 }
 
 export type TPriceType = "won" | "comma"; // 가격 타입
@@ -20,12 +20,21 @@ export const ItemCardContext = React.createContext<ItemCardContext>({
   priceType: "won",
 });
 
-export const ItemCardProvider = ({ itemCardData, grid, gap, lineClamp, priceType, children }: ItemCardContext) => {
+export const ItemCardProvider = ({
+  itemCardData,
+  grid,
+  gap,
+  lineClamp,
+  priceType,
+  children,
+}: ItemCardContext) => {
   return (
-    <ItemCardContext.Provider value={{itemCardData, grid, gap, lineClamp, priceType}}>
+    <ItemCardContext.Provider
+      value={{ itemCardData, grid, gap, lineClamp, priceType }}
+    >
       {children}
     </ItemCardContext.Provider>
-  )
-}
+  );
+};
 
-export const useItemCardContext = () => useContext(ItemCardContext)
+export const useItemCardContext = () => useContext(ItemCardContext);

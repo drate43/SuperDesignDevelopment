@@ -4,7 +4,10 @@ import React from "react";
 import styles from "./trade.module.scss";
 import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
-import { itemCardData } from "@/components/atoms/itemCard-jl/itemCardData";
+import {
+  itemCardData,
+  itemCardData1,
+} from "@/components/atoms/itemCard-jl/itemCardData";
 import ItemCardJL from "@/components/atoms/itemCard-jl";
 
 const TradePage = () => {
@@ -58,6 +61,26 @@ const TradePage = () => {
     );
   });
 
+  const itemCardItem1 = itemCardData1?.map((item) => {
+    const { id, name_kor, price_type, image_path, is_custody, min_price } =
+      item;
+
+    return (
+      <ItemCardJL.ItemCardItem key={id}>
+        <ItemCardJL.ImgWrap>
+          <ItemCardJL.Img url={image_path} alt={name_kor} />
+        </ItemCardJL.ImgWrap>
+        <ItemCardJL.ItemName>{name_kor}</ItemCardJL.ItemName>
+        <ItemCardJL.BadgePrice
+          badgeType={"custody"}
+          badgeValue={is_custody}
+          price={min_price}
+        />
+        {price_type && <p>{price_type}</p>}
+      </ItemCardJL.ItemCardItem>
+    );
+  });
+
   return (
     <main className={styles.tradeMain}>
       {/* 검색 인풋 필터 */}
@@ -96,6 +119,16 @@ const TradePage = () => {
           priceType={"won"}
         >
           <ItemCardJL.ItemCardList>{itemCardItem}</ItemCardJL.ItemCardList>
+        </ItemCardJL>
+
+        <ItemCardJL
+          itemCardData={itemCardData}
+          grid={2}
+          gap={10}
+          lineClamp={2}
+          priceType={"won"}
+        >
+          <ItemCardJL.ItemCardList>{itemCardItem1}</ItemCardJL.ItemCardList>
         </ItemCardJL>
       </div>
     </main>

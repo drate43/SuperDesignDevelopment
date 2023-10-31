@@ -16,6 +16,15 @@ export interface IItemCard {
   is_custody: 0 | 1;
 }
 
+export interface IItemCard1 {
+  id: string;
+  name_kor: string;
+  price_type: string;
+  image_path: string;
+  is_custody: 0 | 1;
+  min_price: number;
+}
+
 export const itemCardData: IItemCard[] = [
   {
     id: 15662,
@@ -142,5 +151,98 @@ export const itemCardData: IItemCard[] = [
       is_under_retail: 1,
     },
     is_custody: 1,
+  },
+];
+
+export const itemCardData1: IItemCard1[] = [
+  {
+    id: "5464581",
+    name_kor: "아식스 젤 카야노 14 언어펙티드 실버 문",
+    price_type: "즉시구매가",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/10/30/0e46f1fb-d3ec-49b6-9064-e1bee627f802.png/soldout/resize/564x564/optimize",
+    is_custody: 0,
+    min_price: 250000,
+  },
+  {
+    id: "5461042",
+    name_kor: "나이키 SB 덩크 로우 프로 위트 (2023)",
+    price_type: "즉시구매가",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/10/16/113009bb-7af5-428e-80be-11d56239e5c0.png/soldout/resize/564x564/optimize",
+    is_custody: 0,
+    min_price: 170000,
+  },
+  {
+    id: "15662",
+    name_kor: "에어 조던 1 레트로 로우 OG SP 트래비스 스캇 세일 앤 리저록",
+    price_type: "",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/08/18/1bb2d964-a7ad-4cad-8bb6-228ef16947f7.png/soldout/resize/564x564/optimize",
+    is_custody: 1,
+    min_price: 1306000,
+  },
+  {
+    id: "5427322",
+    name_kor: "아디다스 캠퍼스 00S 코어 콘 블랙 풋웨어 화이트",
+    price_type: "즉시구매가",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/09/04/98a4a31c-3bd6-4348-b31c-59e98bd47849.png/soldout/resize/564x564/optimize",
+    is_custody: 0,
+    min_price: 230000,
+  },
+  {
+    id: "3333",
+    name_kor: "나이키 에어 포스 1 로우 '07 화이트",
+    price_type: "",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/10/13/0f58e98b-c61d-43fb-9f0d-8768b69c2b23.png/soldout/resize/564x564/optimize",
+    is_custody: 1,
+    min_price: 110000,
+  },
+  {
+    id: "5465355",
+    name_kor: "슈프림 레더 숄더백 블랙 (23FW)",
+    price_type: "즉시구매가",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/10/23/7857173d-76b8-4e88-836e-eac49d907c14.png/soldout/resize/564x564/optimize",
+    is_custody: 0,
+    min_price: 196000,
+  },
+  {
+    id: "5468035",
+    name_kor: "슈프림 x 스톤 아일랜드 데님 트러커 재킷 블랙 (23FW)",
+    price_type: "즉시구매가",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/10/27/fab68f31-a11a-47d7-97f4-0dc61363ad27.png/soldout/resize/564x564/optimize",
+    is_custody: 0,
+    min_price: 1150000,
+  },
+  {
+    id: "5428603",
+    name_kor: "아디다스 가젤 볼드 크림 화이트 컬리지에이트 그린 (W)",
+    price_type: "",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/09/19/3be4c356-6848-47bf-9926-795dd022e53e.png/soldout/resize/564x564/optimize",
+    is_custody: 1,
+    min_price: 133000,
+  },
+  {
+    id: "1336",
+    name_kor: "나이키 에어 포스 1 '07 WB 플랙스",
+    price_type: "",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/09/12/c7c605e2-dbc8-4119-a47c-905ad926af7e.png/soldout/resize/564x564/optimize",
+    is_custody: 1,
+    min_price: 140000,
+  },
+  {
+    id: "54389",
+    name_kor: "아디다스 삼바 OG 블랙 화이트 검",
+    price_type: "",
+    image_path:
+      "https://img.soldout.co.kr/item_thumb/2023/08/30/6a847f1a-65d9-47f1-bedb-f077c55311d8.png/soldout/resize/564x564/optimize",
+    is_custody: 1,
+    min_price: 129000,
   },
 ];
