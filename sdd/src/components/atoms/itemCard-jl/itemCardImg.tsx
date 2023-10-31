@@ -10,7 +10,7 @@ const Img = ({ url, alt }: IImgProps) => {
       src={url}
       alt={alt}
       width={0}
-      height={0}
+      height={12}
       style={{ width: "100%", height: "auto" }}
     />
   );

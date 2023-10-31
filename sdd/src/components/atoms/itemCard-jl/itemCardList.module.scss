@@ -19,10 +19,6 @@
 
 .itemName {
   display: -webkit-box;
-  padding-top: 15px;
-  font-size: 14px;
-  color: #666;
-  line-height: 1.2;
   overflow: hidden;
   white-space: normal;
   text-overflow: ellipsis;
@@ -38,15 +34,6 @@
   }
 }
 
-.itemPrice {
-  padding: 10px 0 20px;
-  font-weight: 600;
-
-  span {
-    vertical-align: middle;
-  }
-}
-
 .badge {
   display: inline-block;
   font-size: 0;
@@ -56,23 +43,29 @@
 .badgeCustody {
   width: 12px;
   height: 12px;
-  background: url('../../../../public/badge/badge-delivery-orange.png') center/cover no-repeat;
+  background: url('/images/badge/badge-delivery-orange.png') center/cover no-repeat;
+}
+
+.badgeCustodyText {
+  width: 56px;
+  height: 12px;
+  background: url('/images/badge/badge-delivery-text.png') center/cover no-repeat;
 }
 
 .badgeGrade {
   width: 20px;
   height: 20px;
-  background: url('../../../../public/badge/badge-grade.png') center/cover no-repeat;
+  background: url('/images/badge/badge-grade.png') center/cover no-repeat;
 }
 
 .badgeSecondhand {
   width: 20px;
   height: 20px;
-  background: url('../../../../public/badge/badge-secondhand.png') center/cover no-repeat;
+  background: url('/images/badge/badge-secondhand.png') center/cover no-repeat;
 }
 
 .badgeUnderRetail {
   width: 20px;
   height: 20px;
-  background: url('../../../../public/badge/badge-under-retail.png') center/cover no-repeat;
+  background: url('/images/badge/badge-under-retail.png') center/cover no-repeat;
 }

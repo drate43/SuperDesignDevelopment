@@ -1,19 +1,18 @@
 import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
 import { useItemCardContext } from "./itemCardContext";
+import { CSSProperties } from "react";
 
 interface IItemNameProps {
   children: string;
+  className?: string;
 }
 
-const ItemName = ({ children }: IItemNameProps) => {
+const ItemName = ({ children, className }: IItemNameProps) => {
   const { lineClamp } = useItemCardContext();
 
   return (
     <p
-      className={`
-        ${styles.itemName} 
-        ${styles[`lineClamp${lineClamp}`]}
-      `}
+      className={`${styles[`lineClamp${lineClamp}`]} ${className}`}
     >
       {children}
     </p>

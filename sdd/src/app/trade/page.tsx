@@ -9,6 +9,7 @@ import {
   itemCardData1,
 } from "@/components/atoms/itemCard-jl/itemCardData";
 import ItemCardJL from "@/components/atoms/itemCard-jl";
+import BadgeDirectDelivery from '@/components/atoms/itemCard-jl/badgeDirectDelivery'
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
@@ -36,7 +37,7 @@ const TradePage = () => {
     } = item;
 
     return (
-      <ItemCardJL.ItemCardItem key={id}>
+      <ItemCardJL.Item key={id}>
         <ItemCardJL.ImgWrap bg={brand_color}>
           <ItemCardJL.Img url={image_path} alt={item_name} />
           <ItemCardJL.BadgeWrap>
@@ -51,13 +52,12 @@ const TradePage = () => {
             />
           </ItemCardJL.BadgeWrap>
         </ItemCardJL.ImgWrap>
-        <ItemCardJL.ItemName>{item_name}</ItemCardJL.ItemName>
-        <ItemCardJL.BadgePrice
-          badgeType={"custody"}
-          badgeValue={is_custody}
-          price={display_price}
-        />
-      </ItemCardJL.ItemCardItem>
+        <ItemCardJL.ItemName className={styles.itemName}>{item_name}</ItemCardJL.ItemName>
+        <p className={styles.itemPrice}>
+          {is_custody === 1 && <ItemCardJL.Badge type={'custody'} value={is_custody} />}
+          <ItemCardJL.Price type={'won'}>{display_price}</ItemCardJL.Price>
+        </p>
+      </ItemCardJL.Item>
     );
   });
 
@@ -66,18 +66,17 @@ const TradePage = () => {
       item;
 
     return (
-      <ItemCardJL.ItemCardItem key={id}>
+      <ItemCardJL.Item key={id}>
         <ItemCardJL.ImgWrap>
           <ItemCardJL.Img url={image_path} alt={name_kor} />
         </ItemCardJL.ImgWrap>
-        <ItemCardJL.ItemName>{name_kor}</ItemCardJL.ItemName>
-        <ItemCardJL.BadgePrice
-          badgeType={"custody"}
-          badgeValue={is_custody}
-          price={min_price}
-        />
-        {price_type && <p>{price_type}</p>}
-      </ItemCardJL.ItemCardItem>
+        <ItemCardJL.ItemName className={styles.itemName}>{name_kor}</ItemCardJL.ItemName>
+        <div className={styles.item1PriceWrap}>
+          <ItemCardJL.Price type={'comma'} className={styles.item1Price}>{min_price}</ItemCardJL.Price>
+          {price_type && <p className={styles.item1PriceType}>{price_type}</p>}
+          {is_custody === 1 && <ItemCardJL.BadgeDirectDelivery />}
+        </div>
+      </ItemCardJL.Item>
     );
   });
 
@@ -118,7 +117,7 @@ const TradePage = () => {
           lineClamp={2}
           priceType={"won"}
         >
-          <ItemCardJL.ItemCardList>{itemCardItem}</ItemCardJL.ItemCardList>
+          <ItemCardJL.List>{itemCardItem}</ItemCardJL.List>
         </ItemCardJL>
 
         <ItemCardJL
@@ -128,7 +127,7 @@ const TradePage = () => {
           lineClamp={2}
           priceType={"won"}
         >
-          <ItemCardJL.ItemCardList>{itemCardItem1}</ItemCardJL.ItemCardList>
+          <ItemCardJL.List>{itemCardItem1}</ItemCardJL.List>
         </ItemCardJL>
       </div>
     </main>

@@ -1,8 +1,9 @@
-import { TPriceType } from "./itemCardList";
+import { TPriceType } from "./itemCardContext";
 
 interface IPriceProps {
   type?: TPriceType; // default: comma
   children: number;
+  className?: string;
 }
 
 const comma = (price: number) => {
@@ -31,10 +32,10 @@ const displayPrice = (type: TPriceType, price: number) => {
   }
 };
 
-const Price = ({ type = "comma", children }: IPriceProps) => {
+const Price = ({ type = "comma", className, children }: IPriceProps) => {
   const formattedPrice = displayPrice(type, children);
 
-  return <span>{formattedPrice}</span>;
+  return <span className={`${className}`}>{formattedPrice}</span>;
 };
 
 export default Price;

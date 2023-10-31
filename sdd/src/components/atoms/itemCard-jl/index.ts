@@ -1,24 +1,26 @@
 import { ItemCardProvider } from "./itemCardContext";
 import ItemCardList from "./itemCardList";
 import ItemCardItem from "./itemCardItem";
-import ImgWrap from "@atoms/itemCard-jl/imgWrap";
-import Img from "@atoms/itemCard-jl/img";
+import ItemCardImgWrap from "@/components/atoms/itemCard-jl/itemCardImgWrap";
+import ItemCardImg from "@/components/atoms/itemCard-jl/itemCardImg";
 import BadgeWrap from "@atoms/itemCard-jl/badgeWrap";
 import Badge from "@atoms/itemCard-jl/badge";
 import ItemBrand from "@atoms/itemCard-jl/itemBrand";
 import ItemName from "@atoms/itemCard-jl/itemName";
-import BadgePrice from "@atoms/itemCard-jl/badgePrice";
+import Price from "@atoms/itemCard-jl/price";
+import BadgeDirectDelivery from "@atoms/itemCard-jl/badgeDirectDelivery";
 
 export const ItemCardJL = Object.assign(ItemCardProvider, {
-  ItemCardList: ItemCardList,
-  ItemCardItem: ItemCardItem,
-  ImgWrap: ImgWrap,
-  Img: Img,
+  List: ItemCardList,
+  Item: ItemCardItem,
+  ImgWrap: ItemCardImgWrap,
+  Img: ItemCardImg,
   BadgeWrap: BadgeWrap,
   Badge: Badge,
-  ItemBrand: ItemBrand,
+  BadgeDirectDelivery: BadgeDirectDelivery,
+  brand: ItemBrand,
   ItemName: ItemName,
-  BadgePrice: BadgePrice,
+  Price: Price,
 });
 
 export default ItemCardJL;
