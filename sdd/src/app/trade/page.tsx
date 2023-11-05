@@ -6,6 +6,7 @@ import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
 
 import { ItemCards, ProductCard } from "@/components/index";
+import { nanoid } from "nanoid";
 
 interface IItem {
   title: string;
@@ -79,47 +80,28 @@ const TradePage = () => {
 
   const Title = <div className="text-4xl">{"용문 상품 리스트"}</div>;
 
+  const lastLoadMore = () => {
+    console.log("test");
+  };
+
   return (
     <main className={styles.tradeMain}>
-      {/* 검색 인풋 필터 */}
-      <div>검색 인풋 필터</div>
-      {/*배너 영역*/}
-      {/* <CarouselBox height={200} itemList={carouselList}>
-        <CarouselBox.SlideBox
-          spaceBetween={50}
-          slidesPerView={"auto"}
-          onSlideChange={(data) => console.log("캐러샐 슬라이드", data)}
-          onSwiper={(swiper) => console.log("캐러셀 생성 :::", swiper)}
-        >
-          {Slide}
-        </CarouselBox.SlideBox>
-      </CarouselBox> */}
-      <br />
-      {/* 1차 카테고리 필터 */}
-      <div>1차 카테고리 필터</div>
-      <br />
-      {/* 2차 카테고리 필터 */}
-      <div>2차 카테고리 필터</div>
-      <br />
-      {/* 필터 */}
-      <div>필터</div>
-      <br />
-      {/* 상품 리스트 */}
-      <div>상품 리스트</div>
-      <br />
-
       <div>
         <ItemCards
-          itemDirection="horizontal"
+          key={nanoid()}
+          itemDirection="vertical"
+          loadMore={lastLoadMore}
           header={Title}
           dataSource={itemList}
           renderItem={(item, index) => {
             return (
-              <ItemCards.item>
+              <ItemCards.item key={nanoid()}>
                 <ProductCard>
                   <ProductCard.Image
                     path={item.image_path}
                     name={"상품 이미지"}
+                    height={100}
+                    width={100}
                   />
                   <ProductCard.Brand name={item.item_info.brand_name} />
                   <ProductCard.Name name={item.title} />

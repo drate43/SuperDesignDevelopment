@@ -1,14 +1,17 @@
+import { nanoid } from "nanoid";
 import Image from "next/image";
 import { Children, JSXElementConstructor, isValidElement } from "react";
 
 interface ProductImageProps {
   path?: string;
   name?: string;
+  height?: number;
+  width?: number;
 }
-const ProductImage = ({ path, name }: ProductImageProps) => {
+const ProductImage = ({ path, name, height, width }: ProductImageProps) => {
   return (
     <>
-      <img src={path ?? ""} alt={name ?? ""} height={100} width={100} />
+      <Image src={path ?? ""} alt={name ?? ""} height={height} width={width} />
     </>
   );
 };
@@ -20,7 +23,7 @@ interface BrandNameProps {
 const BrandName = ({ name }: BrandNameProps) => {
   return (
     <>
-      <div>{name}</div>
+      <div className="text-xs text-neutral-700">{name}</div>
     </>
   );
 };
@@ -32,7 +35,9 @@ interface ProductNameProps {
 const ProductName = ({ name }: ProductNameProps) => {
   return (
     <>
-      <div>{name}</div>
+      <div className="text-sm text-ellipsis overflow-hidden whitespace-nowrap w-28">
+        {name}
+      </div>
     </>
   );
 };
@@ -42,14 +47,14 @@ interface ProductSalePercentProps {
   rate?: string;
 }
 const ProductSalePercent = ({ rate }: ProductSalePercentProps) => {
-  return <div>{rate}</div>;
+  return <div className="text-xs text-amber-800">{rate}</div>;
 };
 
 interface ProductPriceProps {
   price?: number;
 }
 const ProductPrice = ({ price }: ProductPriceProps) => {
-  return <div>{price}원</div>;
+  return <div className="text-sm">{price}원</div>;
 };
 
 type ProductPriceWrapProps = {
@@ -58,7 +63,9 @@ type ProductPriceWrapProps = {
 const ProductPriceWrap = ({ children }: ProductPriceWrapProps) => {
   return (
     <>
-      <div className="flex flex-row">{children}</div>
+      <div className="flex flex-row gap-1 items-center font-bold">
+        {children}
+      </div>
     </>
   );
 };
@@ -120,7 +127,7 @@ const ProductMain = ({ children }: ProductMainProps) => {
   const productPriceWrap = getProductPriceWrap(children);
 
   return (
-    <div className="grid grid-flow-row">
+    <div className="grid grid-flow-row" key={nanoid()}>
       {productImage && <div>{productImage}</div>}
       {brandName && <div>{brandName}</div>}
       {productName && <div>{productName}</div>}

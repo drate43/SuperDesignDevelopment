@@ -1,8 +1,12 @@
+import { nanoid } from "nanoid";
 import React, {
   Children,
   JSXElementConstructor,
   ReactNode,
   isValidElement,
+  useCallback,
+  useEffect,
+  useRef,
   useState,
 } from "react";
 
@@ -13,15 +17,12 @@ type ListItemType = {
 };
 
 const ListItem = ({ children }: ListItemType) => {
-  return (
-    <React.Fragment>
-      <div>{children}</div>
-    </React.Fragment>
-  );
+  return <div key={nanoid()}>{children}</div>;
 };
 
 interface IListProps<T> {
   itemDirection: ListItemDirection;
+  loadMore?: Function;
   header?: React.JSX.Element;
   dataSource: T[];
   renderItem: (item: T, index?: Number) => React.ReactNode;
@@ -40,11 +41,27 @@ const getItemCardItem = (
 
 const ItemCards = <T,>({
   itemDirection,
+  loadMore,
   header,
   dataSource,
   renderItem,
   footer,
 }: IListProps<T>) => {
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const lastElementRef = useRef<HTMLDivElement>(null);
+
+  if (lastElementRef.current) {
+    observerRef.current?.disconnect();
+    observerRef.current?.observe(lastElementRef.current);
+  }
+
+  observerRef.current = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      //loadMore();
+    }
+  });
+
+  useEffect(() => {}, []);
   return (
     <React.Fragment>
       <div className="grid">
@@ -56,6 +73,8 @@ const ItemCards = <T,>({
             }`}
           >
             {dataSource.map((item, index) => {
+              const isLastItem = dataSource.length - 1 === index;
+
               return renderItem(item, index);
             })}
           </div>
