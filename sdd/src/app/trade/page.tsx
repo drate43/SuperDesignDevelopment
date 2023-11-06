@@ -4,6 +4,8 @@ import React from "react";
 import styles from "./trade.module.scss";
 import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
+import ItemCardDH from "@atoms/item-card-dh";
+import useItemCard from "@/hooks/item-card-dh/useItemCard";
 import {
   itemCardData,
   itemCardData1,
@@ -13,11 +15,11 @@ import BadgeDirectDelivery from '@/components/atoms/itemCard-jl/badgeDirectDeliv
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
+  const { itemCardList } = useItemCard();
 
   // 캐러셀 세부 컴포넌트
   const Slide = carouselList.map((data, index) => {
     const { image_path, alt } = data;
-
     return (
       <CarouselBox.Slide key={index}>
         <CarouselBox.Image src={image_path} alt={alt} fill />
@@ -107,6 +109,19 @@ const TradePage = () => {
       <br />
       {/* 상품 리스트 */}
       <div>상품 리스트</div>
+      {/* 상품 리스트 - 동현 */}
+      <div style={{ padding: "16px 0", background: "#eee" }}>
+        <ItemCardDH
+          title={"맛있는 캠핑을 위하여!"}
+          itemCardList={itemCardList}
+          size={160}
+          gap={16}
+        >
+          <ItemCardDH.header />
+          <ItemCardDH.contents />
+        </ItemCardDH>
+      </div>
+
       <br />
       <div>
         <h4>쥐리</h4>
