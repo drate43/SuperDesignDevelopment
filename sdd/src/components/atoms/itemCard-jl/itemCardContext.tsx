@@ -1,8 +1,8 @@
 import React, { ReactNode, useContext } from "react";
-import { IItemCard, IItemCard1 } from "@atoms/itemCard-jl/itemCardData";
+import { IItemCard1, IItemCard2 } from "@/hooks/item-card-jl/itemCardData";
 
 interface ItemCardContext {
-  itemCardData: IItemCard[] | IItemCard1[];
+  itemCardData: IItemCard1[] | IItemCard2[];
   grid: number;
   gap: number;
   lineClamp: 2 | 3; // 말줄임 2 or 3

@@ -3,7 +3,7 @@ interface IItemCardBadge {
   is_secondhand: 0 | 1;
   is_under_retail: 0 | 1;
 }
-export interface IItemCard {
+export interface IItemCard1 {
   id: number;
   image_path: string;
   brand_name: string;
@@ -16,7 +16,7 @@ export interface IItemCard {
   is_custody: 0 | 1;
 }
 
-export interface IItemCard1 {
+export interface IItemCard2 {
   id: string;
   name_kor: string;
   price_type: string;
@@ -25,7 +25,7 @@ export interface IItemCard1 {
   min_price: number;
 }
 
-export const itemCardData: IItemCard[] = [
+export const itemCardData1: IItemCard1[] = [
   {
     id: 15662,
     image_path:
@@ -154,7 +154,7 @@ export const itemCardData: IItemCard[] = [
   },
 ];
 
-export const itemCardData1: IItemCard1[] = [
+export const itemCardData2: IItemCard2[] = [
   {
     id: "5464581",
     name_kor: "아식스 젤 카야노 14 언어펙티드 실버 문",

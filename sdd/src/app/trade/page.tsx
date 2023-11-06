@@ -6,16 +6,13 @@ import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
 import ItemCardDH from "@atoms/item-card-dh";
 import useItemCard from "@/hooks/item-card-dh/useItemCard";
-import {
-  itemCardData,
-  itemCardData1,
-} from "@/components/atoms/itemCard-jl/itemCardData";
+import useItemCardJL from "@/hooks/item-card-jl/useItemCard";
 import ItemCardJL from "@/components/atoms/itemCard-jl";
-import BadgeDirectDelivery from '@/components/atoms/itemCard-jl/badgeDirectDelivery'
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
   const { itemCardList } = useItemCard();
+  const { itemList1, itemList2 } = useItemCardJL();
 
   // 캐러셀 세부 컴포넌트
   const Slide = carouselList.map((data, index) => {
@@ -27,7 +24,7 @@ const TradePage = () => {
     );
   });
 
-  const itemCardItem = itemCardData?.map((item) => {
+  const itemCardItem = itemList1?.map((item) => {
     const {
       id,
       brand_color,
@@ -54,16 +51,20 @@ const TradePage = () => {
             />
           </ItemCardJL.BadgeWrap>
         </ItemCardJL.ImgWrap>
-        <ItemCardJL.ItemName className={styles.itemName}>{item_name}</ItemCardJL.ItemName>
+        <ItemCardJL.ItemName className={styles.itemName}>
+          {item_name}
+        </ItemCardJL.ItemName>
         <p className={styles.itemPrice}>
-          {is_custody === 1 && <ItemCardJL.Badge type={'custody'} value={is_custody} />}
-          <ItemCardJL.Price type={'won'}>{display_price}</ItemCardJL.Price>
+          {is_custody === 1 && (
+            <ItemCardJL.Badge type={"custody"} value={is_custody} />
+          )}
+          <ItemCardJL.Price type={"won"}>{display_price}</ItemCardJL.Price>
         </p>
       </ItemCardJL.Item>
     );
   });
 
-  const itemCardItem1 = itemCardData1?.map((item) => {
+  const itemCardItem1 = itemList2?.map((item) => {
     const { id, name_kor, price_type, image_path, is_custody, min_price } =
       item;
 
@@ -72,9 +73,13 @@ const TradePage = () => {
         <ItemCardJL.ImgWrap>
           <ItemCardJL.Img url={image_path} alt={name_kor} />
         </ItemCardJL.ImgWrap>
-        <ItemCardJL.ItemName className={styles.itemName}>{name_kor}</ItemCardJL.ItemName>
+        <ItemCardJL.ItemName className={styles.itemName}>
+          {name_kor}
+        </ItemCardJL.ItemName>
         <div className={styles.item1PriceWrap}>
-          <ItemCardJL.Price type={'comma'} className={styles.item1Price}>{min_price}</ItemCardJL.Price>
+          <ItemCardJL.Price type={"comma"} className={styles.item1Price}>
+            {min_price}
+          </ItemCardJL.Price>
           {price_type && <p className={styles.item1PriceType}>{price_type}</p>}
           {is_custody === 1 && <ItemCardJL.BadgeDirectDelivery />}
         </div>
@@ -126,7 +131,7 @@ const TradePage = () => {
       <div>
         <h4>쥐리</h4>
         <ItemCardJL
-          itemCardData={itemCardData}
+          itemCardData={itemList1}
           grid={3}
           gap={5}
           lineClamp={2}
@@ -136,7 +141,7 @@ const TradePage = () => {
         </ItemCardJL>
 
         <ItemCardJL
-          itemCardData={itemCardData}
+          itemCardData={itemList2}
           grid={2}
           gap={10}
           lineClamp={2}
