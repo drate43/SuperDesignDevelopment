@@ -91,8 +91,8 @@ const TradePage = () => {
         <CarouselBox.SlideBox
           spaceBetween={50}
           slidesPerView={"auto"}
-          onSlideChange={(data) => console.log("캐러샐 슬라이드", data)}
-          onSwiper={(swiper) => console.log("캐러셀 생성 :::", swiper)}
+          onSlideChange={(data: any) => console.log("캐러샐 슬라이드", data)}
+          onSwiper={(swiper: any) => console.log("캐러셀 생성 :::", swiper)}
         >
           {Slide}
         </CarouselBox.SlideBox>
