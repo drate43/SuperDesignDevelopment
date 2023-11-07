@@ -1,5 +1,6 @@
-import React, { ReactNode, useContext } from "react";
+import React, { ReactNode, useContext, Children, ComponentType, isValidElement } from "react";
 import { IItemCard1, IItemCard2 } from "@/hooks/item-card-jl/itemCardData";
+
 
 interface ItemCardContext {
   itemCardData: IItemCard1[] | IItemCard2[];
@@ -20,6 +21,8 @@ export const ItemCardContext = React.createContext<ItemCardContext>({
   priceType: "won",
 });
 
+
+
 export const ItemCardProvider = ({
   itemCardData,
   grid,
@@ -28,6 +31,7 @@ export const ItemCardProvider = ({
   priceType,
   children,
 }: ItemCardContext) => {
+  
   return (
     <ItemCardContext.Provider
       value={{ itemCardData, grid, gap, lineClamp, priceType }}

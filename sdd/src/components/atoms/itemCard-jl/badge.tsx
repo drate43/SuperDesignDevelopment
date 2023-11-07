@@ -5,7 +5,7 @@ interface IBadgeProps {
   value: 0 | 1;
 }
 
-const Badge = ({ type, value }: IBadgeProps) => {
+export const Badge = ({ type, value }: IBadgeProps) => {
   let badgeName = "";
   let badgeClass = "";
 
@@ -46,4 +46,4 @@ const Badge = ({ type, value }: IBadgeProps) => {
   }
 };
 
-export default Badge;
+export const BadgeType = (<Badge type="" value={0} />).type
