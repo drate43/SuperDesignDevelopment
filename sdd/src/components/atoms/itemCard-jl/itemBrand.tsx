@@ -1,7 +1,7 @@
 import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
 
 interface IItemBrandProps {
-  children: string;
+  children: React.ReactNode;
 }
 
 const ItemBrand = ({ children }: IItemBrandProps) => {

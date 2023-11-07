@@ -1,9 +1,9 @@
+import React, { HTMLAttributes } from "react";
 import { TPriceType } from "./itemCardContext";
 
-interface IPriceProps {
+interface IPriceProps extends HTMLAttributes<HTMLSpanElement> {
   type?: TPriceType; // default: comma
-  children: number;
-  className?: string;
+  value: number;
 }
 
 const comma = (price: number) => {
@@ -32,10 +32,10 @@ const displayPrice = (type: TPriceType, price: number) => {
   }
 };
 
-const Price = ({ type = "comma", className, children }: IPriceProps) => {
-  const formattedPrice = displayPrice(type, children);
+const Price = ({ type = "comma", value, ...rest }: IPriceProps) => {
+  const formattedPrice = displayPrice(type, value);
 
-  return <span className={`${className}`}>{formattedPrice}</span>;
+  return <span {...rest}>{formattedPrice}</span>;
 };
 
 export default Price;

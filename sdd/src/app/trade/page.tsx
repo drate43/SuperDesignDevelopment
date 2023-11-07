@@ -58,7 +58,7 @@ const TradePage = () => {
           {is_custody === 1 && (
             <ItemCardJL.Badge type={"custody"} value={is_custody} />
           )}
-          <ItemCardJL.Price type={"won"}>{display_price}</ItemCardJL.Price>
+          <ItemCardJL.Price type={"won"} value={display_price} />
         </p>
       </ItemCardJL.Item>
     );
@@ -77,9 +77,7 @@ const TradePage = () => {
           {name_kor}
         </ItemCardJL.ItemName>
         <div className={styles.item1PriceWrap}>
-          <ItemCardJL.Price type={"comma"} className={styles.item1Price}>
-            {min_price}
-          </ItemCardJL.Price>
+          <ItemCardJL.Price type={"comma"} value={min_price} className={styles.item1Price} />
           {price_type && <p className={styles.item1PriceType}>{price_type}</p>}
           {is_custody === 1 && <ItemCardJL.BadgeDirectDelivery />}
         </div>
