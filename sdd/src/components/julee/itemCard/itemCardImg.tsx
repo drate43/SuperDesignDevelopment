@@ -4,7 +4,7 @@ interface IImgProps {
   url: string;
   alt: string;
 }
-export const Img = ({ url, alt }: IImgProps) => {
+const Img = ({ url, alt }: IImgProps) => {
   return (
     <Image
       src={url}
@@ -16,4 +16,4 @@ export const Img = ({ url, alt }: IImgProps) => {
   );
 };
 
-export const ImgType = (<Img url="" alt="" />).type
+export default Img;

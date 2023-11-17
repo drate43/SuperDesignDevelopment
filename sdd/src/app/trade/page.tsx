@@ -6,13 +6,10 @@ import CarouselBox from "@/components/atoms/carousel";
 import useCarousel from "@/hooks/carousel/useCarousel";
 import ItemCardDH from "@atoms/item-card-dh";
 import useItemCard from "@/hooks/item-card-dh/useItemCard";
-import useItemCardJL from "@/hooks/item-card-jl/useItemCard";
-import ItemCardJL from "@/components/atoms/itemCard-jl";
 
 const TradePage = () => {
   const [carouselList] = useCarousel();
   const { itemCardList } = useItemCard();
-  const { itemList1, itemList2 } = useItemCardJL();
 
   // 캐러셀 세부 컴포넌트
   const Slide = carouselList.map((data, index) => {
@@ -21,67 +18,6 @@ const TradePage = () => {
       <CarouselBox.Slide key={index}>
         <CarouselBox.Image src={image_path} alt={alt} fill />
       </CarouselBox.Slide>
-    );
-  });
-
-  const itemCardItem = itemList1?.map((item) => {
-    const {
-      id,
-      brand_color,
-      image_path,
-      item_name,
-      badge,
-      is_custody,
-      display_price,
-    } = item;
-
-    return (
-      <ItemCardJL.Item key={id}>
-        <ItemCardJL.ImgWrap bg={brand_color}>
-          <ItemCardJL.Img url={image_path} alt={item_name} />
-          <ItemCardJL.BadgeWrap>
-            <ItemCardJL.Badge
-              type={"under-retail"}
-              value={badge?.is_under_retail}
-            />
-            <ItemCardJL.Badge type={"grade"} value={badge?.is_grade} />
-            <ItemCardJL.Badge
-              type={"secondhand"}
-              value={badge?.is_secondhand}
-            />
-          </ItemCardJL.BadgeWrap>
-        </ItemCardJL.ImgWrap>
-        <ItemCardJL.ItemName className={styles.itemName}>
-          {item_name}
-        </ItemCardJL.ItemName>
-        <p className={styles.itemPrice}>
-          {is_custody === 1 && (
-            <ItemCardJL.Badge type={"custody"} value={is_custody} />
-          )}
-          <ItemCardJL.Price type={"won"} value={display_price} />
-        </p>
-      </ItemCardJL.Item>
-    );
-  });
-
-  const itemCardItem1 = itemList2?.map((item) => {
-    const { id, name_kor, price_type, image_path, is_custody, min_price } =
-      item;
-
-    return (
-      <ItemCardJL.Item key={id}>
-        <ItemCardJL.ImgWrap>
-          <ItemCardJL.Img url={image_path} alt={name_kor} />
-        </ItemCardJL.ImgWrap>
-        <ItemCardJL.ItemName className={styles.itemName}>
-          {name_kor}
-        </ItemCardJL.ItemName>
-        <div className={styles.item1PriceWrap}>
-          <ItemCardJL.Price type={"comma"} value={min_price} className={styles.item1Price} />
-          {price_type && <p className={styles.item1PriceType}>{price_type}</p>}
-          {is_custody === 1 && <ItemCardJL.BadgeDirectDelivery />}
-        </div>
-      </ItemCardJL.Item>
     );
   });
 
@@ -123,30 +59,6 @@ const TradePage = () => {
           <ItemCardDH.header />
           <ItemCardDH.contents />
         </ItemCardDH>
-      </div>
-
-      <br />
-      <div>
-        <h4>쥐리</h4>
-        <ItemCardJL
-          itemCardData={itemList1}
-          grid={3}
-          gap={5}
-          lineClamp={2}
-          priceType={"won"}
-        >
-          <ItemCardJL.List>{itemCardItem}</ItemCardJL.List>
-        </ItemCardJL>
-
-        <ItemCardJL
-          itemCardData={itemList2}
-          grid={2}
-          gap={10}
-          lineClamp={2}
-          priceType={"won"}
-        >
-          <ItemCardJL.List>{itemCardItem1}</ItemCardJL.List>
-        </ItemCardJL>
       </div>
     </main>
   );

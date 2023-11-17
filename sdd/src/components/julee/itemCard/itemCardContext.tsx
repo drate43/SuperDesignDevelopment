@@ -1,41 +1,30 @@
-import React, { ReactNode, useContext, Children, ComponentType, isValidElement } from "react";
+import React, { ReactNode, useContext } from "react";
 import { IItemCard1, IItemCard2 } from "@/hooks/item-card-jl/itemCardData";
-
 
 interface ItemCardContext {
   itemCardData: IItemCard1[] | IItemCard2[];
   grid: number;
   gap: number;
-  lineClamp: 2 | 3; // 말줄임 2 or 3
-  priceType: TPriceType;
+  lineClamp: 1 | 2; // 말줄임 2 or 3
   children?: ReactNode;
 }
-
-export type TPriceType = "won" | "comma"; // 가격 타입
 
 export const ItemCardContext = React.createContext<ItemCardContext>({
   itemCardData: [],
   grid: 3,
   gap: 5,
   lineClamp: 2,
-  priceType: "won",
 });
-
-
 
 export const ItemCardProvider = ({
   itemCardData,
   grid,
   gap,
   lineClamp,
-  priceType,
   children,
 }: ItemCardContext) => {
-  
   return (
-    <ItemCardContext.Provider
-      value={{ itemCardData, grid, gap, lineClamp, priceType }}
-    >
+    <ItemCardContext.Provider value={{ itemCardData, grid, gap, lineClamp }}>
       {children}
     </ItemCardContext.Provider>
   );

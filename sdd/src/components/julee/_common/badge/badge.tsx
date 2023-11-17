@@ -1,11 +1,11 @@
-import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
+import styles from "@components/julee/_common/badge/badge.module.scss";
 
 interface IBadgeProps {
   type: string;
   value: 0 | 1;
 }
 
-export const Badge = ({ type, value }: IBadgeProps) => {
+const Badge = ({ type, value }: IBadgeProps) => {
   let badgeName = "";
   let badgeClass = "";
 
@@ -46,4 +46,4 @@ export const Badge = ({ type, value }: IBadgeProps) => {
   }
 };
 
-export const BadgeType = (<Badge type="" value={0} />).type
+export default Badge;

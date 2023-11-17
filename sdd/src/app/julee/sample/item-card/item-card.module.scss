@@ -1,0 +1,36 @@
+.itemImgBadge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.itemName {
+  padding-top: 15px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.2;
+}
+
+.itemPrice {
+  padding: 10px 0 20px;
+  font-weight: 600;
+
+  span {
+    vertical-align: middle;
+  }
+}
+
+.item1PriceWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.item1Price {
+  padding: 10px 0 5px;
+  font-weight: 600;
+}
+
+.item1PriceType {
+  font-size: 13px;
+  color: #a5a5a5;
+}

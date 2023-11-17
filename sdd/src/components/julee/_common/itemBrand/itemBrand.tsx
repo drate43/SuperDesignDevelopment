@@ -1,4 +1,4 @@
-import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
+import styles from "@components/julee/_common/itemBrand/itemBrand.module.scss";
 
 interface IItemBrandProps {
   children: React.ReactNode;

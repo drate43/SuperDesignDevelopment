@@ -3,6 +3,9 @@ interface IItemCardBadge {
   is_secondhand: 0 | 1;
   is_under_retail: 0 | 1;
 }
+
+export type currencyType = "USD" | "KRW" | "JPY";
+
 export interface IItemCard1 {
   id: number;
   image_path: string;
@@ -10,6 +13,7 @@ export interface IItemCard1 {
   brand_color: string;
   item_name: string;
   display_price: number;
+  price_type: currencyType;
   change_price_ratio: number;
   deep_link: string;
   badge: IItemCardBadge;
@@ -33,6 +37,7 @@ export const itemCardData1: IItemCard1[] = [
     brand_name: "조던",
     brand_color: "#F5F5F5",
     item_name: "에어 조던 1 레트로 로우 OG SP 트래비스 스캇 세일 앤 리저록",
+    price_type: "KRW",
     display_price: 80000,
     change_price_ratio: 6285.6,
     deep_link:
@@ -51,6 +56,7 @@ export const itemCardData1: IItemCard1[] = [
     brand_name: "조던",
     brand_color: "#F5F5F5",
     item_name: "에어 조던 1 레트로 로우 OG 블랙토",
+    price_type: "USD",
     display_price: 166500,
     change_price_ratio: -17.8,
     deep_link:
@@ -69,6 +75,7 @@ export const itemCardData1: IItemCard1[] = [
     brand_name: "나이키",
     brand_color: "#F5F5F5",
     item_name: "나이키 덩크 로우 레트로 화이트 블랙",
+    price_type: "JPY",
     display_price: 111000,
     change_price_ratio: 10.5,
     deep_link:
@@ -87,6 +94,7 @@ export const itemCardData1: IItemCard1[] = [
     brand_name: "아디다스",
     brand_color: "#F5F5F5",
     item_name: "아디다스 이지 폼 러너 카본",
+    price_type: "KRW",
     display_price: 129000,
     change_price_ratio: 78640.1,
     deep_link:
@@ -105,6 +113,7 @@ export const itemCardData1: IItemCard1[] = [
     brand_name: "아디다스",
     brand_color: "#F5F5F5",
     item_name: "아디다스 이지 슬라이드 슬레이트 마린",
+    price_type: "KRW",
     display_price: 85000,
     change_price_ratio: 18.1,
     deep_link:
@@ -123,6 +132,7 @@ export const itemCardData1: IItemCard1[] = [
     brand_name: "조던",
     brand_color: "#F5F5F5",
     item_name: "에어 조던 1 레트로 하이 OG 시카고 2022",
+    price_type: "KRW",
     display_price: 150000,
     change_price_ratio: 24025.4,
     deep_link:
@@ -141,6 +151,7 @@ export const itemCardData1: IItemCard1[] = [
     brand_name: "아디다스",
     brand_color: "#F5F5F5",
     item_name: "아디다스 이지 부스트 350 V2 본 (2022/2023)",
+    price_type: "KRW",
     display_price: 70000,
     change_price_ratio: 32210.1,
     deep_link:

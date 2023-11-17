@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styles from "@atoms/itemCard-jl/itemCardList.module.scss";
+import styles from "@components/julee/itemCard/itemCardList.module.scss";
 
 interface IImgWrapProps {
   children?: ReactNode;
@@ -13,4 +13,4 @@ export const ImgWrap = ({ children, bg = "#f5f5f5" }: IImgWrapProps) => {
   );
 };
 
-export const ImgWrapType = (<ImgWrap />).type
+export default ImgWrap;
